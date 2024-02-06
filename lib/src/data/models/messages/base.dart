@@ -11,7 +11,7 @@ part 'text.dart';
 part 'image.dart';
 part 'unknown_file.dart';
 
-abstract class MessageBase {
+mixin MessageBase {
   int get id;
   DateTime get createdAt;
 }
@@ -23,24 +23,24 @@ enum MessageSentStatus {
 }
 
 /// Message sended from client
-abstract class MessageFromClient {
+mixin MessageFromClient {
   int? get localId;
   MessageSentStatus get status;
 }
 
-abstract class MessageTextBase {
+mixin MessageTextBase {
   String get text;
   List<MessageButton> get buttons;
 }
 
-abstract class MessageImageBase {
+mixin MessageImageBase {
   MessageFile get file;
 }
 
-abstract class MessageFileBase {
+mixin MessageFileBase {
   MessageFile get file;
 }
 
-abstract class MessageUploadFileBase {
+mixin MessageUploadFileBase {
   Stream<double>? get uploadProgress;
 }
