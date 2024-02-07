@@ -31,12 +31,12 @@ class UsedeskChat {
 
   static Future<UsedeskChat> init({
     required UsedeskChatStorageProvider storage,
+    required String token,
     required String companyId,
     String? channelId,
     ChatApiConfiguration apiConfig = const ChatApiConfiguration(),
     bool debug = false,
   }) async {
-    final token = await storage.getToken();
     final repository = UsedeskChatRepository(
       storage: storage is UsedeskChatCachedStorage ? storage : null,
     );
@@ -169,12 +169,11 @@ class UsedeskChat {
     return result;
   }
 
-  Future<void> reset() {
+  Future<void> reset() async {
     _api.identify = null;
     if (_api.storage is UsedeskChatCachedStorage) {
       (_api.storage as UsedeskChatCachedStorage).clearMessages();
     }
-    return _api.storage.clearToken();
   }
 
   void dispose() {
