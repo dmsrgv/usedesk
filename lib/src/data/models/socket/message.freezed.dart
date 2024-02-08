@@ -831,9 +831,6 @@ MessageButton _$MessageButtonFromJson(Map<String, dynamic> json) {
 /// @nodoc
 mixin _$MessageButton {
   String get text => throw _privateConstructorUsedError;
-  bool get isShow => throw _privateConstructorUsedError;
-  String? get url => throw _privateConstructorUsedError;
-  String? get type => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -847,7 +844,7 @@ abstract class $MessageButtonCopyWith<$Res> {
           MessageButton value, $Res Function(MessageButton) then) =
       _$MessageButtonCopyWithImpl<$Res, MessageButton>;
   @useResult
-  $Res call({String text, bool isShow, String? url, String? type});
+  $Res call({String text});
 }
 
 /// @nodoc
@@ -864,27 +861,12 @@ class _$MessageButtonCopyWithImpl<$Res, $Val extends MessageButton>
   @override
   $Res call({
     Object? text = null,
-    Object? isShow = null,
-    Object? url = freezed,
-    Object? type = freezed,
   }) {
     return _then(_value.copyWith(
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      isShow: null == isShow
-          ? _value.isShow
-          : isShow // ignore: cast_nullable_to_non_nullable
-              as bool,
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
     ) as $Val);
   }
 }
@@ -897,7 +879,7 @@ abstract class _$$MessageButtonImplCopyWith<$Res>
       __$$MessageButtonImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String text, bool isShow, String? url, String? type});
+  $Res call({String text});
 }
 
 /// @nodoc
@@ -912,27 +894,12 @@ class __$$MessageButtonImplCopyWithImpl<$Res>
   @override
   $Res call({
     Object? text = null,
-    Object? isShow = null,
-    Object? url = freezed,
-    Object? type = freezed,
   }) {
     return _then(_$MessageButtonImpl(
       text: null == text
           ? _value.text
           : text // ignore: cast_nullable_to_non_nullable
               as String,
-      isShow: null == isShow
-          ? _value.isShow
-          : isShow // ignore: cast_nullable_to_non_nullable
-              as bool,
-      url: freezed == url
-          ? _value.url
-          : url // ignore: cast_nullable_to_non_nullable
-              as String?,
-      type: freezed == type
-          ? _value.type
-          : type // ignore: cast_nullable_to_non_nullable
-              as String?,
     ));
   }
 }
@@ -940,24 +907,17 @@ class __$$MessageButtonImplCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$MessageButtonImpl implements _MessageButton {
-  const _$MessageButtonImpl(
-      {required this.text, required this.isShow, this.url, this.type});
+  const _$MessageButtonImpl({required this.text});
 
   factory _$MessageButtonImpl.fromJson(Map<String, dynamic> json) =>
       _$$MessageButtonImplFromJson(json);
 
   @override
   final String text;
-  @override
-  final bool isShow;
-  @override
-  final String? url;
-  @override
-  final String? type;
 
   @override
   String toString() {
-    return 'MessageButton(text: $text, isShow: $isShow, url: $url, type: $type)';
+    return 'MessageButton(text: $text)';
   }
 
   @override
@@ -965,15 +925,12 @@ class _$MessageButtonImpl implements _MessageButton {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$MessageButtonImpl &&
-            (identical(other.text, text) || other.text == text) &&
-            (identical(other.isShow, isShow) || other.isShow == isShow) &&
-            (identical(other.url, url) || other.url == url) &&
-            (identical(other.type, type) || other.type == type));
+            (identical(other.text, text) || other.text == text));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(runtimeType, text, isShow, url, type);
+  int get hashCode => Object.hash(runtimeType, text);
 
   @JsonKey(ignore: true)
   @override
@@ -990,23 +947,14 @@ class _$MessageButtonImpl implements _MessageButton {
 }
 
 abstract class _MessageButton implements MessageButton {
-  const factory _MessageButton(
-      {required final String text,
-      required final bool isShow,
-      final String? url,
-      final String? type}) = _$MessageButtonImpl;
+  const factory _MessageButton({required final String text}) =
+      _$MessageButtonImpl;
 
   factory _MessageButton.fromJson(Map<String, dynamic> json) =
       _$MessageButtonImpl.fromJson;
 
   @override
   String get text;
-  @override
-  bool get isShow;
-  @override
-  String? get url;
-  @override
-  String? get type;
   @override
   @JsonKey(ignore: true)
   _$$MessageButtonImplCopyWith<_$MessageButtonImpl> get copyWith =>

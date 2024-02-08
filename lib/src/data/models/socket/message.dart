@@ -1,3 +1,4 @@
+import 'dart:developer';
 import 'dart:typed_data';
 
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -40,17 +41,9 @@ class Message<C> with _$Message<C> {
 
           final button = MessageButton(
             text: sections[0],
-            url: sections[1].isEmpty ? null : sections[1],
-            type: sections[2].isEmpty ? null : sections[2],
-            isShow: sections[3] == 'show',
           );
 
-          if (button.isShow) {
-            newText =
-                newText?.replaceFirst(match.group(0)!, '"${button.text}"');
-          } else {
-            newText = newText?.replaceFirst(match.group(0)!, '');
-          }
+          newText = newText?.replaceFirst(match.group(0)!, '');
 
           return button;
         }).toList();
@@ -123,9 +116,6 @@ class MessagePayload with _$MessagePayload {
 class MessageButton with _$MessageButton {
   const factory MessageButton({
     required String text,
-    required bool isShow,
-    String? url,
-    String? type,
   }) = _MessageButton;
 
   factory MessageButton.fromJson(Map<String, dynamic> json) =>

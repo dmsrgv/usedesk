@@ -77,15 +77,9 @@ Map<String, dynamic> _$$MessagePayloadImplToJson(
 _$MessageButtonImpl _$$MessageButtonImplFromJson(Map<String, dynamic> json) =>
     _$MessageButtonImpl(
       text: json['text'] as String,
-      isShow: json['isShow'] as bool,
-      url: json['url'] as String?,
-      type: json['type'] as String?,
     );
 
 Map<String, dynamic> _$$MessageButtonImplToJson(_$MessageButtonImpl instance) =>
     <String, dynamic>{
       'text': instance.text,
-      'isShow': instance.isShow,
-      'url': instance.url,
-      'type': instance.type,
     };

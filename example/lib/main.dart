@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:usedesk/usedesk.dart';
@@ -37,7 +39,7 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
       debug: true,
       companyId: '167613',
       channelId: '53976',
-      token: null,
+      token: 'TDoD1CBBVBoDEBCBTSBtCBCjNBqBgDeBBDYDpC5TCrCmCxDBClC5DDD3DegC6rDe',
       onSetToken: (token) {
         print(token);
       },
@@ -69,34 +71,38 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
                                 itemCount: snapshot.data!.length,
                                 itemBuilder: (context, index) {
                                   final message = snapshot.data![index];
+                                  log(message.buttons.toString());
                                   if (message.text != null) {
-                                    return Text(message.text!);
-                                  }
-
-                                  if (message.buttons != null &&
-                                      message.buttons!.isNotEmpty) {
-                                    return Wrap(
-                                      spacing: 8,
+                                    return Column(
                                       children: [
-                                        ...message.buttons!
-                                            .map(
-                                              (e) => ActionChip(
-                                                label: Text(
-                                                  e.text,
-                                                  style: const TextStyle(
-                                                    color: Colors.white,
-                                                  ),
-                                                ),
-                                                backgroundColor: Colors.green,
-                                                shadowColor:
-                                                    Colors.green.shade800,
-                                                elevation: 8,
-                                                onPressed: () {
-                                                  future.data!.sendText(e.text);
-                                                },
-                                              ),
-                                            )
-                                            .toList(),
+                                        Text(message.text!),
+                                        if (message.buttons != null)
+                                          Wrap(
+                                            spacing: 8,
+                                            children: [
+                                              ...message.buttons!
+                                                  .map(
+                                                    (e) => ActionChip(
+                                                      label: Text(
+                                                        e.text,
+                                                        style: const TextStyle(
+                                                          color: Colors.white,
+                                                        ),
+                                                      ),
+                                                      backgroundColor:
+                                                          Colors.green,
+                                                      shadowColor:
+                                                          Colors.green.shade800,
+                                                      elevation: 8,
+                                                      onPressed: () {
+                                                        future.data!
+                                                            .sendText(e.text);
+                                                      },
+                                                    ),
+                                                  )
+                                                  .toList(),
+                                            ],
+                                          ),
                                       ],
                                     );
                                   }
