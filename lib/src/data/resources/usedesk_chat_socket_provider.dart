@@ -46,6 +46,7 @@ class UsedeskChatSocketProvider {
   }
 
   void _onResponse(Map<String, dynamic> rawData) {
+    print('OTLADKA $rawData');
     final typeRaw =
         rawData.containsKey('type') ? rawData['type'] as String : '';
     final type = responseTypeByValue(typeRaw);
