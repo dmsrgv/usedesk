@@ -14,7 +14,7 @@ class UsedeskChatRepository {
   final UsedeskChatCachedStorage? storage;
 
   final List<UsedeskMessage> _messages = [];
-  final List<UserUsedeskMessage> _queueForDeletion = [];
+  final List<UsedeskMessage> _queueForDeletion = [];
   final _onMessageStreamController =
       StreamController<UsedeskMessage>.broadcast();
   final _messagesController =
@@ -28,7 +28,7 @@ class UsedeskChatRepository {
 
   void initMessages(List<UsedeskMessage> messages) {
     final failedMessages = _messages
-        .whereType<UserUsedeskMessage>()
+        .whereType<UsedeskMessage>()
         .where((message) => message.status == MessageSentStatus.failed)
         .toList();
     if (_messages.isNotEmpty) {
@@ -42,7 +42,7 @@ class UsedeskChatRepository {
 
   void addMessage(UsedeskMessage message) {
     final index = _messages.indexWhere((existMessage) {
-      if (message is UserUsedeskMessage && existMessage is UserUsedeskMessage) {
+      if (message.fromClient && existMessage.fromClient) {
         final clientMessage = message;
         final clientExistMessage = existMessage;
         if (clientMessage.localId != null &&
@@ -50,9 +50,7 @@ class UsedeskChatRepository {
           return clientMessage.localId == clientExistMessage.localId;
         }
       }
-      final operatorExistMessage = existMessage as OperatorUsedeskMessage;
-      final operatorMessage = message as OperatorUsedeskMessage;
-      return operatorExistMessage.id == operatorMessage.id;
+      return message.id == existMessage.id;
     });
     if (index == -1) {
       _messages.add(message);
@@ -62,7 +60,7 @@ class UsedeskChatRepository {
     _onMessageStreamController.sink.add(message);
     _messagesController.sink.add(_messages);
 
-    if (storage != null && message is UserUsedeskMessage) {
+    if (storage != null && message.localId != null && message.fromClient) {
       final clientMessage = message;
       final cachedMessageIndex = _queueForDeletion.indexWhere(
           (messageForDeletion) =>
@@ -83,9 +81,9 @@ class UsedeskChatRepository {
   void markFailedMessages() {
     for (int i = 0; i < _messages.length; i++) {
       final message = _messages[i];
-      if (message is UserUsedeskMessage &&
-          message.status == MessageSentStatus.sending &&
-          message.localId != null) {
+      if (message.status == MessageSentStatus.sending &&
+          message.localId != null &&
+          message.fromClient) {
         _messages[i] = message.copyWith(
           status: MessageSentStatus.failed,
         );
@@ -101,7 +99,7 @@ class UsedeskChatRepository {
       return;
     }
     final messages = _messages
-        .whereType<UserUsedeskMessage>()
+        .whereType<UsedeskMessage>()
         .where((message) => message.status == MessageSentStatus.failed);
     storage!.cacheMessages([
       for (final message in messages)
@@ -113,14 +111,14 @@ class UsedeskChatRepository {
     ]);
   }
 
-  List<UserUsedeskMessage> failedMessages() {
+  List<UsedeskMessage> failedMessages() {
     return _messages
-        .whereType<UserUsedeskMessage>()
+        .whereType<UsedeskMessage>()
         .where((message) => message.status == MessageSentStatus.failed)
         .toList();
   }
 
-  Future<List<UserUsedeskMessage>> cachedMessages() async {
+  Future<List<UsedeskMessage>> cachedMessages() async {
     if (storage == null) {
       return [];
     }
@@ -129,12 +127,12 @@ class UsedeskChatRepository {
     final messages = messagesData
         .map(jsonDecode)
         .cast<Map<String, dynamic>>()
-        .map(UserUsedeskMessage.fromJson)
+        .map(UsedeskMessage.fromJson)
         .toList();
     return messages;
   }
 
-  void addToQueueForDeletion(UserUsedeskMessage message) {
+  void addToQueueForDeletion(UsedeskMessage message) {
     _queueForDeletion.add(message);
   }
 

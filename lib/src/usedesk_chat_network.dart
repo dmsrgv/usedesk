@@ -237,7 +237,7 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
   }
 
   Future<void> _reSendMessages() async {
-    List<UserUsedeskMessage> messages = await repository.cachedMessages();
+    List<UsedeskMessage> messages = await repository.cachedMessages();
     if (messages.isEmpty) {
       messages = repository.failedMessages();
     }

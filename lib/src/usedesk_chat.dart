@@ -75,7 +75,7 @@ class UsedeskChat {
 
   void sendText(String text, [int? localId]) {
     if (localId != null) {
-      _repository.addMessage(UserUsedeskMessage(
+      _repository.addMessage(UsedeskMessage(
         id: -localId,
         localId: localId,
         createdAt: DateTime.now(),
@@ -84,6 +84,7 @@ class UsedeskChat {
             ? MessageSentStatus.sending
             : MessageSentStatus.failed,
         buttons: [],
+        fromClient: true,
       ));
       _repository.saveFailedMessages();
     }
@@ -120,24 +121,26 @@ class UsedeskChat {
 
       if (mime.startsWith('image')) {
         _repository.addMessage(
-          UserUsedeskMessage(
+          UsedeskMessage(
             id: -localId,
             localId: localId,
             createdAt: DateTime.now().toUtc(),
             file: file,
             status: status,
             uploadProgress: uploadProgressStream,
+            fromClient: true,
           ),
         );
       } else {
         _repository.addMessage(
-          UserUsedeskMessage(
+          UsedeskMessage(
             id: -localId,
             localId: localId,
             createdAt: DateTime.now().toUtc(),
             file: file,
             status: status,
             uploadProgress: uploadProgressStream,
+            fromClient: true,
           ),
         );
       }
