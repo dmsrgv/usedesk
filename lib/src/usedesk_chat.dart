@@ -37,6 +37,7 @@ class UsedeskChat {
     String? channelId,
     ChatApiConfiguration apiConfig = const ChatApiConfiguration(),
     bool debug = false,
+    void Function(String token)? onSetToken,
   }) async {
     final repository = UsedeskChatRepository(
       storage: storage is UsedeskChatCachedStorage ? storage : null,
@@ -49,6 +50,7 @@ class UsedeskChat {
       apiConfig: apiConfig,
       token: token,
       debug: debug,
+      onSetToken: onSetToken,
     )..init();
     return UsedeskChat._(
       api: api,
