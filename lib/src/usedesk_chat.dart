@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:filesize/filesize.dart';
 import 'package:mime/mime.dart';
 import 'package:path/path.dart' as p;
+import 'package:usedesk/src/data/models/messages/usedesk_message.dart';
 
 import 'usedesk_chat_network.dart';
 import 'data/models/configuration/chat_api_configuration.dart';
@@ -25,9 +26,9 @@ class UsedeskChat {
   final UsedeskChatRepository _repository;
   final bool debug;
 
-  List<MessageBase> get messages => _repository.messages;
-  Stream<MessageBase> get onMessageStream => _repository.onMessageStream;
-  Stream<List<MessageBase>> get messagesStream => _repository.messagesStream;
+  List<UsedeskMessage> get messages => _repository.messages;
+  Stream<UsedeskMessage> get onMessageStream => _repository.onMessageStream;
+  Stream<List<UsedeskMessage>> get messagesStream => _repository.messagesStream;
 
   static Future<UsedeskChat> init({
     required UsedeskChatStorageProvider storage,
@@ -74,7 +75,7 @@ class UsedeskChat {
 
   void sendText(String text, [int? localId]) {
     if (localId != null) {
-      _repository.addMessage(MessageTextClient(
+      _repository.addMessage(UserUsedeskMessage(
         id: -localId,
         localId: localId,
         createdAt: DateTime.now(),
@@ -119,7 +120,7 @@ class UsedeskChat {
 
       if (mime.startsWith('image')) {
         _repository.addMessage(
-          MessageImageClient(
+          UserUsedeskMessage(
             id: -localId,
             localId: localId,
             createdAt: DateTime.now().toUtc(),
@@ -130,7 +131,7 @@ class UsedeskChat {
         );
       } else {
         _repository.addMessage(
-          MessageUnknownFileClient(
+          UserUsedeskMessage(
             id: -localId,
             localId: localId,
             createdAt: DateTime.now().toUtc(),

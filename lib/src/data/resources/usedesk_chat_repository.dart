@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:usedesk/src/data/models/messages/base.dart';
+import 'package:usedesk/src/data/models/messages/usedesk_message.dart';
 import 'package:usedesk/src/data/resources/usedesk_chat_storage_provider.dart';
 
 class UsedeskChatRepository {
@@ -12,20 +13,22 @@ class UsedeskChatRepository {
   bool _disposed = false;
   final UsedeskChatCachedStorage? storage;
 
-  final List<MessageBase> _messages = [];
-  final List<MessageFromClient> _queueForDeletion = [];
-  final _onMessageStreamController = StreamController<MessageBase>.broadcast();
-  final _messagesController = StreamController<List<MessageBase>>.broadcast();
+  final List<UsedeskMessage> _messages = [];
+  final List<UserUsedeskMessage> _queueForDeletion = [];
+  final _onMessageStreamController =
+      StreamController<UsedeskMessage>.broadcast();
+  final _messagesController =
+      StreamController<List<UsedeskMessage>>.broadcast();
 
-  List<MessageBase> get messages => _messages;
-  Stream<MessageBase> get onMessageStream =>
+  List<UsedeskMessage> get messages => _messages;
+  Stream<UsedeskMessage> get onMessageStream =>
       _onMessageStreamController.stream.asBroadcastStream();
-  Stream<List<MessageBase>> get messagesStream =>
+  Stream<List<UsedeskMessage>> get messagesStream =>
       _messagesController.stream.asBroadcastStream();
 
-  void initMessages(List<MessageBase> messages) {
+  void initMessages(List<UsedeskMessage> messages) {
     final failedMessages = _messages
-        .whereType<MessageTextClient>()
+        .whereType<UserUsedeskMessage>()
         .where((message) => message.status == MessageSentStatus.failed)
         .toList();
     if (_messages.isNotEmpty) {
@@ -37,17 +40,19 @@ class UsedeskChatRepository {
     }
   }
 
-  void addMessage(MessageBase message) {
+  void addMessage(UsedeskMessage message) {
     final index = _messages.indexWhere((existMessage) {
-      if (message is MessageFromClient && existMessage is MessageFromClient) {
-        final clientMessage = message as MessageFromClient;
-        final clientExistMessage = existMessage as MessageFromClient;
+      if (message is UserUsedeskMessage && existMessage is UserUsedeskMessage) {
+        final clientMessage = message;
+        final clientExistMessage = existMessage;
         if (clientMessage.localId != null &&
             clientExistMessage.localId != null) {
           return clientMessage.localId == clientExistMessage.localId;
         }
       }
-      return existMessage.id == message.id;
+      final operatorExistMessage = existMessage as OperatorUsedeskMessage;
+      final operatorMessage = message as OperatorUsedeskMessage;
+      return operatorExistMessage.id == operatorMessage.id;
     });
     if (index == -1) {
       _messages.add(message);
@@ -57,8 +62,8 @@ class UsedeskChatRepository {
     _onMessageStreamController.sink.add(message);
     _messagesController.sink.add(_messages);
 
-    if (storage != null && message is MessageFromClient) {
-      final clientMessage = message as MessageFromClient;
+    if (storage != null && message is UserUsedeskMessage) {
+      final clientMessage = message;
       final cachedMessageIndex = _queueForDeletion.indexWhere(
           (messageForDeletion) =>
               messageForDeletion.localId == clientMessage.localId);
@@ -78,7 +83,7 @@ class UsedeskChatRepository {
   void markFailedMessages() {
     for (int i = 0; i < _messages.length; i++) {
       final message = _messages[i];
-      if (message is MessageTextClient &&
+      if (message is UserUsedeskMessage &&
           message.status == MessageSentStatus.sending &&
           message.localId != null) {
         _messages[i] = message.copyWith(
@@ -96,7 +101,7 @@ class UsedeskChatRepository {
       return;
     }
     final messages = _messages
-        .whereType<MessageTextClient>()
+        .whereType<UserUsedeskMessage>()
         .where((message) => message.status == MessageSentStatus.failed);
     storage!.cacheMessages([
       for (final message in messages)
@@ -108,14 +113,14 @@ class UsedeskChatRepository {
     ]);
   }
 
-  List<MessageTextClient> failedMessages() {
+  List<UserUsedeskMessage> failedMessages() {
     return _messages
-        .whereType<MessageTextClient>()
+        .whereType<UserUsedeskMessage>()
         .where((message) => message.status == MessageSentStatus.failed)
         .toList();
   }
 
-  Future<List<MessageTextClient>> cachedMessages() async {
+  Future<List<UserUsedeskMessage>> cachedMessages() async {
     if (storage == null) {
       return [];
     }
@@ -124,12 +129,12 @@ class UsedeskChatRepository {
     final messages = messagesData
         .map(jsonDecode)
         .cast<Map<String, dynamic>>()
-        .map(MessageTextClient.fromJson)
+        .map(UserUsedeskMessage.fromJson)
         .toList();
     return messages;
   }
 
-  void addToQueueForDeletion(MessageFromClient message) {
+  void addToQueueForDeletion(UserUsedeskMessage message) {
     _queueForDeletion.add(message);
   }
 

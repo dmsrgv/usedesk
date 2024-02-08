@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'set_client_response.dart';
 
@@ -12,7 +12,7 @@ part of 'set_client_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 SetClientResponse _$SetClientResponseFromJson(Map<String, dynamic> json) {
   return _SetClientResponse.fromJson(json);
@@ -34,58 +34,63 @@ mixin _$SetClientResponse {
 abstract class $SetClientResponseCopyWith<$Res> {
   factory $SetClientResponseCopyWith(
           SetClientResponse value, $Res Function(SetClientResponse) then) =
-      _$SetClientResponseCopyWithImpl<$Res>;
+      _$SetClientResponseCopyWithImpl<$Res, SetClientResponse>;
+  @useResult
   $Res call({String type, SetClientResponseState state, bool? reset});
 
   $SetClientResponseStateCopyWith<$Res> get state;
 }
 
 /// @nodoc
-class _$SetClientResponseCopyWithImpl<$Res>
+class _$SetClientResponseCopyWithImpl<$Res, $Val extends SetClientResponse>
     implements $SetClientResponseCopyWith<$Res> {
   _$SetClientResponseCopyWithImpl(this._value, this._then);
 
-  final SetClientResponse _value;
   // ignore: unused_field
-  final $Res Function(SetClientResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
-    Object? state = freezed,
+    Object? type = null,
+    Object? state = null,
     Object? reset = freezed,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      state: state == freezed
+      state: null == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as SetClientResponseState,
-      reset: reset == freezed
+      reset: freezed == reset
           ? _value.reset
           : reset // ignore: cast_nullable_to_non_nullable
               as bool?,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SetClientResponseStateCopyWith<$Res> get state {
     return $SetClientResponseStateCopyWith<$Res>(_value.state, (value) {
-      return _then(_value.copyWith(state: value));
+      return _then(_value.copyWith(state: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_SetClientResponseCopyWith<$Res>
+abstract class _$$SetClientResponseImplCopyWith<$Res>
     implements $SetClientResponseCopyWith<$Res> {
-  factory _$$_SetClientResponseCopyWith(_$_SetClientResponse value,
-          $Res Function(_$_SetClientResponse) then) =
-      __$$_SetClientResponseCopyWithImpl<$Res>;
+  factory _$$SetClientResponseImplCopyWith(_$SetClientResponseImpl value,
+          $Res Function(_$SetClientResponseImpl) then) =
+      __$$SetClientResponseImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String type, SetClientResponseState state, bool? reset});
 
   @override
@@ -93,32 +98,30 @@ abstract class _$$_SetClientResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SetClientResponseCopyWithImpl<$Res>
-    extends _$SetClientResponseCopyWithImpl<$Res>
-    implements _$$_SetClientResponseCopyWith<$Res> {
-  __$$_SetClientResponseCopyWithImpl(
-      _$_SetClientResponse _value, $Res Function(_$_SetClientResponse) _then)
-      : super(_value, (v) => _then(v as _$_SetClientResponse));
+class __$$SetClientResponseImplCopyWithImpl<$Res>
+    extends _$SetClientResponseCopyWithImpl<$Res, _$SetClientResponseImpl>
+    implements _$$SetClientResponseImplCopyWith<$Res> {
+  __$$SetClientResponseImplCopyWithImpl(_$SetClientResponseImpl _value,
+      $Res Function(_$SetClientResponseImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_SetClientResponse get _value => super._value as _$_SetClientResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
-    Object? state = freezed,
+    Object? type = null,
+    Object? state = null,
     Object? reset = freezed,
   }) {
-    return _then(_$_SetClientResponse(
-      type: type == freezed
+    return _then(_$SetClientResponseImpl(
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      state: state == freezed
+      state: null == state
           ? _value.state
           : state // ignore: cast_nullable_to_non_nullable
               as SetClientResponseState,
-      reset: reset == freezed
+      reset: freezed == reset
           ? _value.reset
           : reset // ignore: cast_nullable_to_non_nullable
               as bool?,
@@ -128,12 +131,12 @@ class __$$_SetClientResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SetClientResponse implements _SetClientResponse {
-  const _$_SetClientResponse(
+class _$SetClientResponseImpl implements _SetClientResponse {
+  const _$SetClientResponseImpl(
       {required this.type, required this.state, this.reset});
 
-  factory _$_SetClientResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_SetClientResponseFromJson(json);
+  factory _$SetClientResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SetClientResponseImplFromJson(json);
 
   @override
   final String type;
@@ -148,32 +151,29 @@ class _$_SetClientResponse implements _SetClientResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SetClientResponse &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.state, state) &&
-            const DeepCollectionEquality().equals(other.reset, reset));
+            other is _$SetClientResponseImpl &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.state, state) || other.state == state) &&
+            (identical(other.reset, reset) || other.reset == reset));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(state),
-      const DeepCollectionEquality().hash(reset));
+  int get hashCode => Object.hash(runtimeType, type, state, reset);
 
   @JsonKey(ignore: true)
   @override
-  _$$_SetClientResponseCopyWith<_$_SetClientResponse> get copyWith =>
-      __$$_SetClientResponseCopyWithImpl<_$_SetClientResponse>(
+  @pragma('vm:prefer-inline')
+  _$$SetClientResponseImplCopyWith<_$SetClientResponseImpl> get copyWith =>
+      __$$SetClientResponseImplCopyWithImpl<_$SetClientResponseImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SetClientResponseToJson(
+    return _$$SetClientResponseImplToJson(
       this,
     );
   }
@@ -183,10 +183,10 @@ abstract class _SetClientResponse implements SetClientResponse, BaseResponse {
   const factory _SetClientResponse(
       {required final String type,
       required final SetClientResponseState state,
-      final bool? reset}) = _$_SetClientResponse;
+      final bool? reset}) = _$SetClientResponseImpl;
 
   factory _SetClientResponse.fromJson(Map<String, dynamic> json) =
-      _$_SetClientResponse.fromJson;
+      _$SetClientResponseImpl.fromJson;
 
   @override
   String get type;
@@ -196,7 +196,7 @@ abstract class _SetClientResponse implements SetClientResponse, BaseResponse {
   bool? get reset;
   @override
   @JsonKey(ignore: true)
-  _$$_SetClientResponseCopyWith<_$_SetClientResponse> get copyWith =>
+  _$$SetClientResponseImplCopyWith<_$SetClientResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -219,48 +219,55 @@ mixin _$SetClientResponseState {
 abstract class $SetClientResponseStateCopyWith<$Res> {
   factory $SetClientResponseStateCopyWith(SetClientResponseState value,
           $Res Function(SetClientResponseState) then) =
-      _$SetClientResponseStateCopyWithImpl<$Res>;
+      _$SetClientResponseStateCopyWithImpl<$Res, SetClientResponseState>;
+  @useResult
   $Res call({SetClientResponseStateClient client});
 
   $SetClientResponseStateClientCopyWith<$Res> get client;
 }
 
 /// @nodoc
-class _$SetClientResponseStateCopyWithImpl<$Res>
+class _$SetClientResponseStateCopyWithImpl<$Res,
+        $Val extends SetClientResponseState>
     implements $SetClientResponseStateCopyWith<$Res> {
   _$SetClientResponseStateCopyWithImpl(this._value, this._then);
 
-  final SetClientResponseState _value;
   // ignore: unused_field
-  final $Res Function(SetClientResponseState) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? client = freezed,
+    Object? client = null,
   }) {
     return _then(_value.copyWith(
-      client: client == freezed
+      client: null == client
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as SetClientResponseStateClient,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SetClientResponseStateClientCopyWith<$Res> get client {
     return $SetClientResponseStateClientCopyWith<$Res>(_value.client, (value) {
-      return _then(_value.copyWith(client: value));
+      return _then(_value.copyWith(client: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_SetClientResponseStateCopyWith<$Res>
+abstract class _$$SetClientResponseStateImplCopyWith<$Res>
     implements $SetClientResponseStateCopyWith<$Res> {
-  factory _$$_SetClientResponseStateCopyWith(_$_SetClientResponseState value,
-          $Res Function(_$_SetClientResponseState) then) =
-      __$$_SetClientResponseStateCopyWithImpl<$Res>;
+  factory _$$SetClientResponseStateImplCopyWith(
+          _$SetClientResponseStateImpl value,
+          $Res Function(_$SetClientResponseStateImpl) then) =
+      __$$SetClientResponseStateImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({SetClientResponseStateClient client});
 
   @override
@@ -268,23 +275,22 @@ abstract class _$$_SetClientResponseStateCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SetClientResponseStateCopyWithImpl<$Res>
-    extends _$SetClientResponseStateCopyWithImpl<$Res>
-    implements _$$_SetClientResponseStateCopyWith<$Res> {
-  __$$_SetClientResponseStateCopyWithImpl(_$_SetClientResponseState _value,
-      $Res Function(_$_SetClientResponseState) _then)
-      : super(_value, (v) => _then(v as _$_SetClientResponseState));
+class __$$SetClientResponseStateImplCopyWithImpl<$Res>
+    extends _$SetClientResponseStateCopyWithImpl<$Res,
+        _$SetClientResponseStateImpl>
+    implements _$$SetClientResponseStateImplCopyWith<$Res> {
+  __$$SetClientResponseStateImplCopyWithImpl(
+      _$SetClientResponseStateImpl _value,
+      $Res Function(_$SetClientResponseStateImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_SetClientResponseState get _value =>
-      super._value as _$_SetClientResponseState;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? client = freezed,
+    Object? client = null,
   }) {
-    return _then(_$_SetClientResponseState(
-      client: client == freezed
+    return _then(_$SetClientResponseStateImpl(
+      client: null == client
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as SetClientResponseStateClient,
@@ -294,11 +300,11 @@ class __$$_SetClientResponseStateCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SetClientResponseState implements _SetClientResponseState {
-  const _$_SetClientResponseState({required this.client});
+class _$SetClientResponseStateImpl implements _SetClientResponseState {
+  const _$SetClientResponseStateImpl({required this.client});
 
-  factory _$_SetClientResponseState.fromJson(Map<String, dynamic> json) =>
-      _$$_SetClientResponseStateFromJson(json);
+  factory _$SetClientResponseStateImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SetClientResponseStateImplFromJson(json);
 
   @override
   final SetClientResponseStateClient client;
@@ -309,27 +315,27 @@ class _$_SetClientResponseState implements _SetClientResponseState {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SetClientResponseState &&
-            const DeepCollectionEquality().equals(other.client, client));
+            other is _$SetClientResponseStateImpl &&
+            (identical(other.client, client) || other.client == client));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(client));
+  int get hashCode => Object.hash(runtimeType, client);
 
   @JsonKey(ignore: true)
   @override
-  _$$_SetClientResponseStateCopyWith<_$_SetClientResponseState> get copyWith =>
-      __$$_SetClientResponseStateCopyWithImpl<_$_SetClientResponseState>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SetClientResponseStateImplCopyWith<_$SetClientResponseStateImpl>
+      get copyWith => __$$SetClientResponseStateImplCopyWithImpl<
+          _$SetClientResponseStateImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SetClientResponseStateToJson(
+    return _$$SetClientResponseStateImplToJson(
       this,
     );
   }
@@ -338,17 +344,17 @@ class _$_SetClientResponseState implements _SetClientResponseState {
 abstract class _SetClientResponseState implements SetClientResponseState {
   const factory _SetClientResponseState(
           {required final SetClientResponseStateClient client}) =
-      _$_SetClientResponseState;
+      _$SetClientResponseStateImpl;
 
   factory _SetClientResponseState.fromJson(Map<String, dynamic> json) =
-      _$_SetClientResponseState.fromJson;
+      _$SetClientResponseStateImpl.fromJson;
 
   @override
   SetClientResponseStateClient get client;
   @override
   @JsonKey(ignore: true)
-  _$$_SetClientResponseStateCopyWith<_$_SetClientResponseState> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SetClientResponseStateImplCopyWith<_$SetClientResponseStateImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 SetClientResponseStateClient _$SetClientResponseStateClientFromJson(
@@ -373,19 +379,24 @@ abstract class $SetClientResponseStateClientCopyWith<$Res> {
   factory $SetClientResponseStateClientCopyWith(
           SetClientResponseStateClient value,
           $Res Function(SetClientResponseStateClient) then) =
-      _$SetClientResponseStateClientCopyWithImpl<$Res>;
+      _$SetClientResponseStateClientCopyWithImpl<$Res,
+          SetClientResponseStateClient>;
+  @useResult
   $Res call({String? token, String? email, int? chat});
 }
 
 /// @nodoc
-class _$SetClientResponseStateClientCopyWithImpl<$Res>
+class _$SetClientResponseStateClientCopyWithImpl<$Res,
+        $Val extends SetClientResponseStateClient>
     implements $SetClientResponseStateClientCopyWith<$Res> {
   _$SetClientResponseStateClientCopyWithImpl(this._value, this._then);
 
-  final SetClientResponseStateClient _value;
   // ignore: unused_field
-  final $Res Function(SetClientResponseStateClient) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? token = freezed,
@@ -393,62 +404,61 @@ class _$SetClientResponseStateClientCopyWithImpl<$Res>
     Object? chat = freezed,
   }) {
     return _then(_value.copyWith(
-      token: token == freezed
+      token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      chat: chat == freezed
+      chat: freezed == chat
           ? _value.chat
           : chat // ignore: cast_nullable_to_non_nullable
               as int?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_SetClientResponseStateClientCopyWith<$Res>
+abstract class _$$SetClientResponseStateClientImplCopyWith<$Res>
     implements $SetClientResponseStateClientCopyWith<$Res> {
-  factory _$$_SetClientResponseStateClientCopyWith(
-          _$_SetClientResponseStateClient value,
-          $Res Function(_$_SetClientResponseStateClient) then) =
-      __$$_SetClientResponseStateClientCopyWithImpl<$Res>;
+  factory _$$SetClientResponseStateClientImplCopyWith(
+          _$SetClientResponseStateClientImpl value,
+          $Res Function(_$SetClientResponseStateClientImpl) then) =
+      __$$SetClientResponseStateClientImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String? token, String? email, int? chat});
 }
 
 /// @nodoc
-class __$$_SetClientResponseStateClientCopyWithImpl<$Res>
-    extends _$SetClientResponseStateClientCopyWithImpl<$Res>
-    implements _$$_SetClientResponseStateClientCopyWith<$Res> {
-  __$$_SetClientResponseStateClientCopyWithImpl(
-      _$_SetClientResponseStateClient _value,
-      $Res Function(_$_SetClientResponseStateClient) _then)
-      : super(_value, (v) => _then(v as _$_SetClientResponseStateClient));
+class __$$SetClientResponseStateClientImplCopyWithImpl<$Res>
+    extends _$SetClientResponseStateClientCopyWithImpl<$Res,
+        _$SetClientResponseStateClientImpl>
+    implements _$$SetClientResponseStateClientImplCopyWith<$Res> {
+  __$$SetClientResponseStateClientImplCopyWithImpl(
+      _$SetClientResponseStateClientImpl _value,
+      $Res Function(_$SetClientResponseStateClientImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_SetClientResponseStateClient get _value =>
-      super._value as _$_SetClientResponseStateClient;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
     Object? token = freezed,
     Object? email = freezed,
     Object? chat = freezed,
   }) {
-    return _then(_$_SetClientResponseStateClient(
-      token: token == freezed
+    return _then(_$SetClientResponseStateClientImpl(
+      token: freezed == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String?,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      chat: chat == freezed
+      chat: freezed == chat
           ? _value.chat
           : chat // ignore: cast_nullable_to_non_nullable
               as int?,
@@ -458,11 +468,13 @@ class __$$_SetClientResponseStateClientCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SetClientResponseStateClient implements _SetClientResponseStateClient {
-  const _$_SetClientResponseStateClient({this.token, this.email, this.chat});
+class _$SetClientResponseStateClientImpl
+    implements _SetClientResponseStateClient {
+  const _$SetClientResponseStateClientImpl({this.token, this.email, this.chat});
 
-  factory _$_SetClientResponseStateClient.fromJson(Map<String, dynamic> json) =>
-      _$$_SetClientResponseStateClientFromJson(json);
+  factory _$SetClientResponseStateClientImpl.fromJson(
+          Map<String, dynamic> json) =>
+      _$$SetClientResponseStateClientImplFromJson(json);
 
   @override
   final String? token;
@@ -477,32 +489,30 @@ class _$_SetClientResponseStateClient implements _SetClientResponseStateClient {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SetClientResponseStateClient &&
-            const DeepCollectionEquality().equals(other.token, token) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.chat, chat));
+            other is _$SetClientResponseStateClientImpl &&
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.chat, chat) || other.chat == chat));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(token),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(chat));
+  int get hashCode => Object.hash(runtimeType, token, email, chat);
 
   @JsonKey(ignore: true)
   @override
-  _$$_SetClientResponseStateClientCopyWith<_$_SetClientResponseStateClient>
-      get copyWith => __$$_SetClientResponseStateClientCopyWithImpl<
-          _$_SetClientResponseStateClient>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SetClientResponseStateClientImplCopyWith<
+          _$SetClientResponseStateClientImpl>
+      get copyWith => __$$SetClientResponseStateClientImplCopyWithImpl<
+          _$SetClientResponseStateClientImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SetClientResponseStateClientToJson(
+    return _$$SetClientResponseStateClientImplToJson(
       this,
     );
   }
@@ -513,10 +523,10 @@ abstract class _SetClientResponseStateClient
   const factory _SetClientResponseStateClient(
       {final String? token,
       final String? email,
-      final int? chat}) = _$_SetClientResponseStateClient;
+      final int? chat}) = _$SetClientResponseStateClientImpl;
 
   factory _SetClientResponseStateClient.fromJson(Map<String, dynamic> json) =
-      _$_SetClientResponseStateClient.fromJson;
+      _$SetClientResponseStateClientImpl.fromJson;
 
   @override
   String? get token;
@@ -526,6 +536,7 @@ abstract class _SetClientResponseStateClient
   int? get chat;
   @override
   @JsonKey(ignore: true)
-  _$$_SetClientResponseStateClientCopyWith<_$_SetClientResponseStateClient>
+  _$$SetClientResponseStateClientImplCopyWith<
+          _$SetClientResponseStateClientImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'message_response.dart';
 
@@ -12,7 +12,7 @@ part of 'message_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 MessageResponse _$MessageResponseFromJson(Map<String, dynamic> json) {
   return _MessageResponse.fromJson(json);
@@ -33,53 +33,58 @@ mixin _$MessageResponse {
 abstract class $MessageResponseCopyWith<$Res> {
   factory $MessageResponseCopyWith(
           MessageResponse value, $Res Function(MessageResponse) then) =
-      _$MessageResponseCopyWithImpl<$Res>;
+      _$MessageResponseCopyWithImpl<$Res, MessageResponse>;
+  @useResult
   $Res call({String type, Message<dynamic> message});
 
   $MessageCopyWith<dynamic, $Res> get message;
 }
 
 /// @nodoc
-class _$MessageResponseCopyWithImpl<$Res>
+class _$MessageResponseCopyWithImpl<$Res, $Val extends MessageResponse>
     implements $MessageResponseCopyWith<$Res> {
   _$MessageResponseCopyWithImpl(this._value, this._then);
 
-  final MessageResponse _value;
   // ignore: unused_field
-  final $Res Function(MessageResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
-    Object? message = freezed,
+    Object? type = null,
+    Object? message = null,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as Message<dynamic>,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $MessageCopyWith<dynamic, $Res> get message {
     return $MessageCopyWith<dynamic, $Res>(_value.message, (value) {
-      return _then(_value.copyWith(message: value));
+      return _then(_value.copyWith(message: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_MessageResponseCopyWith<$Res>
+abstract class _$$MessageResponseImplCopyWith<$Res>
     implements $MessageResponseCopyWith<$Res> {
-  factory _$$_MessageResponseCopyWith(
-          _$_MessageResponse value, $Res Function(_$_MessageResponse) then) =
-      __$$_MessageResponseCopyWithImpl<$Res>;
+  factory _$$MessageResponseImplCopyWith(_$MessageResponseImpl value,
+          $Res Function(_$MessageResponseImpl) then) =
+      __$$MessageResponseImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String type, Message<dynamic> message});
 
   @override
@@ -87,27 +92,25 @@ abstract class _$$_MessageResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_MessageResponseCopyWithImpl<$Res>
-    extends _$MessageResponseCopyWithImpl<$Res>
-    implements _$$_MessageResponseCopyWith<$Res> {
-  __$$_MessageResponseCopyWithImpl(
-      _$_MessageResponse _value, $Res Function(_$_MessageResponse) _then)
-      : super(_value, (v) => _then(v as _$_MessageResponse));
+class __$$MessageResponseImplCopyWithImpl<$Res>
+    extends _$MessageResponseCopyWithImpl<$Res, _$MessageResponseImpl>
+    implements _$$MessageResponseImplCopyWith<$Res> {
+  __$$MessageResponseImplCopyWithImpl(
+      _$MessageResponseImpl _value, $Res Function(_$MessageResponseImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_MessageResponse get _value => super._value as _$_MessageResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
-    Object? message = freezed,
+    Object? type = null,
+    Object? message = null,
   }) {
-    return _then(_$_MessageResponse(
-      type: type == freezed
+    return _then(_$MessageResponseImpl(
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      message: message == freezed
+      message: null == message
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
               as Message<dynamic>,
@@ -117,11 +120,11 @@ class __$$_MessageResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_MessageResponse implements _MessageResponse {
-  const _$_MessageResponse({required this.type, required this.message});
+class _$MessageResponseImpl implements _MessageResponse {
+  const _$MessageResponseImpl({required this.type, required this.message});
 
-  factory _$_MessageResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_MessageResponseFromJson(json);
+  factory _$MessageResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$MessageResponseImplFromJson(json);
 
   @override
   final String type;
@@ -134,29 +137,28 @@ class _$_MessageResponse implements _MessageResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_MessageResponse &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.message, message));
+            other is _$MessageResponseImpl &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.message, message) || other.message == message));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(message));
+  int get hashCode => Object.hash(runtimeType, type, message);
 
   @JsonKey(ignore: true)
   @override
-  _$$_MessageResponseCopyWith<_$_MessageResponse> get copyWith =>
-      __$$_MessageResponseCopyWithImpl<_$_MessageResponse>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$MessageResponseImplCopyWith<_$MessageResponseImpl> get copyWith =>
+      __$$MessageResponseImplCopyWithImpl<_$MessageResponseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_MessageResponseToJson(
+    return _$$MessageResponseImplToJson(
       this,
     );
   }
@@ -165,10 +167,10 @@ class _$_MessageResponse implements _MessageResponse {
 abstract class _MessageResponse implements MessageResponse, BaseResponse {
   const factory _MessageResponse(
       {required final String type,
-      required final Message<dynamic> message}) = _$_MessageResponse;
+      required final Message<dynamic> message}) = _$MessageResponseImpl;
 
   factory _MessageResponse.fromJson(Map<String, dynamic> json) =
-      _$_MessageResponse.fromJson;
+      _$MessageResponseImpl.fromJson;
 
   @override
   String get type;
@@ -176,6 +178,6 @@ abstract class _MessageResponse implements MessageResponse, BaseResponse {
   Message<dynamic> get message;
   @override
   @JsonKey(ignore: true)
-  _$$_MessageResponseCopyWith<_$_MessageResponse> get copyWith =>
+  _$$MessageResponseImplCopyWith<_$MessageResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'chat.dart';
 
@@ -12,7 +12,7 @@ part of 'chat.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 Chat _$ChatFromJson(Map<String, dynamic> json) {
   return _Chat.fromJson(json);
@@ -40,7 +40,8 @@ mixin _$Chat {
 /// @nodoc
 abstract class $ChatCopyWith<$Res> {
   factory $ChatCopyWith(Chat value, $Res Function(Chat) then) =
-      _$ChatCopyWithImpl<$Res>;
+      _$ChatCopyWithImpl<$Res, Chat>;
+  @useResult
   $Res call(
       {int id,
       int channelId,
@@ -54,71 +55,76 @@ abstract class $ChatCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$ChatCopyWithImpl<$Res> implements $ChatCopyWith<$Res> {
+class _$ChatCopyWithImpl<$Res, $Val extends Chat>
+    implements $ChatCopyWith<$Res> {
   _$ChatCopyWithImpl(this._value, this._then);
 
-  final Chat _value;
   // ignore: unused_field
-  final $Res Function(Chat) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? channelId = freezed,
-    Object? clientId = freezed,
-    Object? companyId = freezed,
+    Object? id = null,
+    Object? channelId = null,
+    Object? clientId = null,
+    Object? companyId = null,
     Object? ticketId = freezed,
-    Object? online = freezed,
-    Object? token = freezed,
-    Object? connectedAt = freezed,
-    Object? url = freezed,
+    Object? online = null,
+    Object? token = null,
+    Object? connectedAt = null,
+    Object? url = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      channelId: channelId == freezed
+      channelId: null == channelId
           ? _value.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
               as int,
-      clientId: clientId == freezed
+      clientId: null == clientId
           ? _value.clientId
           : clientId // ignore: cast_nullable_to_non_nullable
               as int,
-      companyId: companyId == freezed
+      companyId: null == companyId
           ? _value.companyId
           : companyId // ignore: cast_nullable_to_non_nullable
               as int,
-      ticketId: ticketId == freezed
+      ticketId: freezed == ticketId
           ? _value.ticketId
           : ticketId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      online: online == freezed
+      online: null == online
           ? _value.online
           : online // ignore: cast_nullable_to_non_nullable
               as bool,
-      token: token == freezed
+      token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
-      connectedAt: connectedAt == freezed
+      connectedAt: null == connectedAt
           ? _value.connectedAt
           : connectedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_ChatCopyWith<$Res> implements $ChatCopyWith<$Res> {
-  factory _$$_ChatCopyWith(_$_Chat value, $Res Function(_$_Chat) then) =
-      __$$_ChatCopyWithImpl<$Res>;
+abstract class _$$ChatImplCopyWith<$Res> implements $ChatCopyWith<$Res> {
+  factory _$$ChatImplCopyWith(
+          _$ChatImpl value, $Res Function(_$ChatImpl) then) =
+      __$$ChatImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       int channelId,
@@ -132,60 +138,59 @@ abstract class _$$_ChatCopyWith<$Res> implements $ChatCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ChatCopyWithImpl<$Res> extends _$ChatCopyWithImpl<$Res>
-    implements _$$_ChatCopyWith<$Res> {
-  __$$_ChatCopyWithImpl(_$_Chat _value, $Res Function(_$_Chat) _then)
-      : super(_value, (v) => _then(v as _$_Chat));
+class __$$ChatImplCopyWithImpl<$Res>
+    extends _$ChatCopyWithImpl<$Res, _$ChatImpl>
+    implements _$$ChatImplCopyWith<$Res> {
+  __$$ChatImplCopyWithImpl(_$ChatImpl _value, $Res Function(_$ChatImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Chat get _value => super._value as _$_Chat;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
-    Object? channelId = freezed,
-    Object? clientId = freezed,
-    Object? companyId = freezed,
+    Object? id = null,
+    Object? channelId = null,
+    Object? clientId = null,
+    Object? companyId = null,
     Object? ticketId = freezed,
-    Object? online = freezed,
-    Object? token = freezed,
-    Object? connectedAt = freezed,
-    Object? url = freezed,
+    Object? online = null,
+    Object? token = null,
+    Object? connectedAt = null,
+    Object? url = null,
   }) {
-    return _then(_$_Chat(
-      id: id == freezed
+    return _then(_$ChatImpl(
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      channelId: channelId == freezed
+      channelId: null == channelId
           ? _value.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
               as int,
-      clientId: clientId == freezed
+      clientId: null == clientId
           ? _value.clientId
           : clientId // ignore: cast_nullable_to_non_nullable
               as int,
-      companyId: companyId == freezed
+      companyId: null == companyId
           ? _value.companyId
           : companyId // ignore: cast_nullable_to_non_nullable
               as int,
-      ticketId: ticketId == freezed
+      ticketId: freezed == ticketId
           ? _value.ticketId
           : ticketId // ignore: cast_nullable_to_non_nullable
               as dynamic,
-      online: online == freezed
+      online: null == online
           ? _value.online
           : online // ignore: cast_nullable_to_non_nullable
               as bool,
-      token: token == freezed
+      token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
-      connectedAt: connectedAt == freezed
+      connectedAt: null == connectedAt
           ? _value.connectedAt
           : connectedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      url: url == freezed
+      url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as String,
@@ -196,8 +201,8 @@ class __$$_ChatCopyWithImpl<$Res> extends _$ChatCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_Chat implements _Chat {
-  const _$_Chat(
+class _$ChatImpl implements _Chat {
+  const _$ChatImpl(
       {required this.id,
       required this.channelId,
       required this.clientId,
@@ -208,7 +213,8 @@ class _$_Chat implements _Chat {
       required this.connectedAt,
       required this.url});
 
-  factory _$_Chat.fromJson(Map<String, dynamic> json) => _$$_ChatFromJson(json);
+  factory _$ChatImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ChatImplFromJson(json);
 
   @override
   final int id;
@@ -237,44 +243,48 @@ class _$_Chat implements _Chat {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Chat &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality().equals(other.channelId, channelId) &&
-            const DeepCollectionEquality().equals(other.clientId, clientId) &&
-            const DeepCollectionEquality().equals(other.companyId, companyId) &&
+            other is _$ChatImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.channelId, channelId) ||
+                other.channelId == channelId) &&
+            (identical(other.clientId, clientId) ||
+                other.clientId == clientId) &&
+            (identical(other.companyId, companyId) ||
+                other.companyId == companyId) &&
             const DeepCollectionEquality().equals(other.ticketId, ticketId) &&
-            const DeepCollectionEquality().equals(other.online, online) &&
-            const DeepCollectionEquality().equals(other.token, token) &&
-            const DeepCollectionEquality()
-                .equals(other.connectedAt, connectedAt) &&
-            const DeepCollectionEquality().equals(other.url, url));
+            (identical(other.online, online) || other.online == online) &&
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.connectedAt, connectedAt) ||
+                other.connectedAt == connectedAt) &&
+            (identical(other.url, url) || other.url == url));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(channelId),
-      const DeepCollectionEquality().hash(clientId),
-      const DeepCollectionEquality().hash(companyId),
+      id,
+      channelId,
+      clientId,
+      companyId,
       const DeepCollectionEquality().hash(ticketId),
-      const DeepCollectionEquality().hash(online),
-      const DeepCollectionEquality().hash(token),
-      const DeepCollectionEquality().hash(connectedAt),
-      const DeepCollectionEquality().hash(url));
+      online,
+      token,
+      connectedAt,
+      url);
 
   @JsonKey(ignore: true)
   @override
-  _$$_ChatCopyWith<_$_Chat> get copyWith =>
-      __$$_ChatCopyWithImpl<_$_Chat>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$ChatImplCopyWith<_$ChatImpl> get copyWith =>
+      __$$ChatImplCopyWithImpl<_$ChatImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ChatToJson(
+    return _$$ChatImplToJson(
       this,
     );
   }
@@ -290,9 +300,9 @@ abstract class _Chat implements Chat {
       @JsonKey(fromJson: Chat._onlineFromJson) required final bool online,
       required final String token,
       required final DateTime connectedAt,
-      required final String url}) = _$_Chat;
+      required final String url}) = _$ChatImpl;
 
-  factory _Chat.fromJson(Map<String, dynamic> json) = _$_Chat.fromJson;
+  factory _Chat.fromJson(Map<String, dynamic> json) = _$ChatImpl.fromJson;
 
   @override
   int get id;
@@ -315,5 +325,6 @@ abstract class _Chat implements Chat {
   String get url;
   @override
   @JsonKey(ignore: true)
-  _$$_ChatCopyWith<_$_Chat> get copyWith => throw _privateConstructorUsedError;
+  _$$ChatImplCopyWith<_$ChatImpl> get copyWith =>
+      throw _privateConstructorUsedError;
 }

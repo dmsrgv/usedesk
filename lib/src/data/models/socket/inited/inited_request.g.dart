@@ -6,8 +6,8 @@ part of 'inited_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_InitedRequest _$$_InitedRequestFromJson(Map<String, dynamic> json) =>
-    _$_InitedRequest(
+_$InitedRequestImpl _$$InitedRequestImplFromJson(Map<String, dynamic> json) =>
+    _$InitedRequestImpl(
       type: json['type'] as String? ?? '@@server/chat/INIT',
       companyId: json['company_id'] as String,
       payload: json['payload'] == null
@@ -18,7 +18,7 @@ _$_InitedRequest _$$_InitedRequestFromJson(Map<String, dynamic> json) =>
       token: json['token'] as String?,
     );
 
-Map<String, dynamic> _$$_InitedRequestToJson(_$_InitedRequest instance) =>
+Map<String, dynamic> _$$InitedRequestImplToJson(_$InitedRequestImpl instance) =>
     <String, dynamic>{
       'type': instance.type,
       'company_id': instance.companyId,
@@ -27,16 +27,16 @@ Map<String, dynamic> _$$_InitedRequestToJson(_$_InitedRequest instance) =>
       'token': instance.token,
     };
 
-_$_InitedRequestPayload _$$_InitedRequestPayloadFromJson(
+_$InitedRequestPayloadImpl _$$InitedRequestPayloadImplFromJson(
         Map<String, dynamic> json) =>
-    _$_InitedRequestPayload(
+    _$InitedRequestPayloadImpl(
       sdk: json['sdk'] as String? ?? 'iOS',
       type: json['type'] as String? ?? 'sdk',
       version: json['version'] as String? ?? '2.3.0',
     );
 
-Map<String, dynamic> _$$_InitedRequestPayloadToJson(
-        _$_InitedRequestPayload instance) =>
+Map<String, dynamic> _$$InitedRequestPayloadImplToJson(
+        _$InitedRequestPayloadImpl instance) =>
     <String, dynamic>{
       'sdk': instance.sdk,
       'type': instance.type,

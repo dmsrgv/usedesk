@@ -1,11 +1,12 @@
 import 'dart:typed_data';
 
+import 'package:usedesk/src/data/models/messages/usedesk_message.dart';
+
 import 'data/interfaces/usedesk_chat_socket_callbacks.dart';
 import 'data/models/_converters/message.dart';
 import 'data/models/api/additional_fields/additional_fields_request.dart';
 import 'data/models/configuration/chat_api_configuration.dart';
 import 'data/models/configuration/identify_configuration.dart';
-import 'data/models/messages/base.dart';
 import 'data/models/socket/error/error_response.dart';
 import 'data/models/socket/inited/inited_request.dart';
 import 'data/models/socket/inited/inited_response.dart';
@@ -236,13 +237,15 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
   }
 
   Future<void> _reSendMessages() async {
-    List<MessageTextClient> messages = await repository.cachedMessages();
+    List<UserUsedeskMessage> messages = await repository.cachedMessages();
     if (messages.isEmpty) {
       messages = repository.failedMessages();
     }
     for (final message in messages) {
       repository.addToQueueForDeletion(message);
-      sendText(message.text, message.localId);
+      if (message.text == null) break;
+
+      sendText(message.text!, message.localId);
     }
   }
 

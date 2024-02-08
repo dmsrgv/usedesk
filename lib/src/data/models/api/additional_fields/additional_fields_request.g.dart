@@ -6,9 +6,9 @@ part of 'additional_fields_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_AdditionalFieldsRequest _$$_AdditionalFieldsRequestFromJson(
+_$AdditionalFieldsRequestImpl _$$AdditionalFieldsRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AdditionalFieldsRequest(
+    _$AdditionalFieldsRequestImpl(
       chatToken: json['chat_token'] as String,
       additionalFields: (json['additional_fields'] as List<dynamic>)
           .map((e) =>
@@ -16,23 +16,23 @@ _$_AdditionalFieldsRequest _$$_AdditionalFieldsRequestFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_AdditionalFieldsRequestToJson(
-        _$_AdditionalFieldsRequest instance) =>
+Map<String, dynamic> _$$AdditionalFieldsRequestImplToJson(
+        _$AdditionalFieldsRequestImpl instance) =>
     <String, dynamic>{
       'chat_token': instance.chatToken,
       'additional_fields':
           instance.additionalFields.map((e) => e.toJson()).toList(),
     };
 
-_$_AdditionalFieldsItemRequest _$$_AdditionalFieldsItemRequestFromJson(
+_$AdditionalFieldsItemRequestImpl _$$AdditionalFieldsItemRequestImplFromJson(
         Map<String, dynamic> json) =>
-    _$_AdditionalFieldsItemRequest(
+    _$AdditionalFieldsItemRequestImpl(
       id: json['id'] as String,
       value: json['value'] as String,
     );
 
-Map<String, dynamic> _$$_AdditionalFieldsItemRequestToJson(
-        _$_AdditionalFieldsItemRequest instance) =>
+Map<String, dynamic> _$$AdditionalFieldsItemRequestImplToJson(
+        _$AdditionalFieldsItemRequestImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'value': instance.value,

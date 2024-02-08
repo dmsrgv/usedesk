@@ -6,21 +6,22 @@ part of 'inited_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_InitedResponse _$$_InitedResponseFromJson(Map<String, dynamic> json) =>
-    _$_InitedResponse(
+_$InitedResponseImpl _$$InitedResponseImplFromJson(Map<String, dynamic> json) =>
+    _$InitedResponseImpl(
       type: json['type'] as String,
       token: json['token'] as String,
       setup: Setup.fromJson(json['setup'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_InitedResponseToJson(_$_InitedResponse instance) =>
+Map<String, dynamic> _$$InitedResponseImplToJson(
+        _$InitedResponseImpl instance) =>
     <String, dynamic>{
       'type': instance.type,
       'token': instance.token,
       'setup': instance.setup.toJson(),
     };
 
-_$_Setup _$$_SetupFromJson(Map<String, dynamic> json) => _$_Setup(
+_$SetupImpl _$$SetupImplFromJson(Map<String, dynamic> json) => _$SetupImpl(
       waitingEmail: json['waitingEmail'] as bool,
       client: json['client'] == null
           ? null
@@ -39,7 +40,8 @@ _$_Setup _$$_SetupFromJson(Map<String, dynamic> json) => _$_Setup(
           const [],
     );
 
-Map<String, dynamic> _$$_SetupToJson(_$_Setup instance) => <String, dynamic>{
+Map<String, dynamic> _$$SetupImplToJson(_$SetupImpl instance) =>
+    <String, dynamic>{
       'waitingEmail': instance.waitingEmail,
       'client': instance.client?.toJson(),
       'callback_settings': instance.callbackSettings?.toJson(),
@@ -48,8 +50,8 @@ Map<String, dynamic> _$$_SetupToJson(_$_Setup instance) => <String, dynamic>{
       'messages': instance.messages.map((e) => e.toJson()).toList(),
     };
 
-_$_SetupTicket _$$_SetupTicketFromJson(Map<String, dynamic> json) =>
-    _$_SetupTicket(
+_$SetupTicketImpl _$$SetupTicketImplFromJson(Map<String, dynamic> json) =>
+    _$SetupTicketImpl(
       id: json['id'] as int,
       assigneeId: json['assignee_id'] as int?,
       clientId: json['client_id'] as int,
@@ -65,7 +67,7 @@ _$_SetupTicket _$$_SetupTicketFromJson(Map<String, dynamic> json) =>
       statusId: json['status_id'] as int,
     );
 
-Map<String, dynamic> _$$_SetupTicketToJson(_$_SetupTicket instance) =>
+Map<String, dynamic> _$$SetupTicketImplToJson(_$SetupTicketImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'assignee_id': instance.assigneeId,
@@ -82,9 +84,9 @@ Map<String, dynamic> _$$_SetupTicketToJson(_$_SetupTicket instance) =>
       'status_id': instance.statusId,
     };
 
-_$_SetupCallbackSettings _$$_SetupCallbackSettingsFromJson(
+_$SetupCallbackSettingsImpl _$$SetupCallbackSettingsImplFromJson(
         Map<String, dynamic> json) =>
-    _$_SetupCallbackSettings(
+    _$SetupCallbackSettingsImpl(
       workType: json['work_type'] as String,
       callbackTitle: json['callback_title'] as String,
       callbackGreeting: json['callback_greeting'] as String,
@@ -94,8 +96,8 @@ _$_SetupCallbackSettings _$$_SetupCallbackSettingsFromJson(
       customFields: json['custom_fields'] as List<dynamic>,
     );
 
-Map<String, dynamic> _$$_SetupCallbackSettingsToJson(
-        _$_SetupCallbackSettings instance) =>
+Map<String, dynamic> _$$SetupCallbackSettingsImplToJson(
+        _$SetupCallbackSettingsImpl instance) =>
     <String, dynamic>{
       'work_type': instance.workType,
       'callback_title': instance.callbackTitle,
@@ -106,14 +108,14 @@ Map<String, dynamic> _$$_SetupCallbackSettingsToJson(
       'custom_fields': instance.customFields,
     };
 
-_$_SetupClient _$$_SetupClientFromJson(Map<String, dynamic> json) =>
-    _$_SetupClient(
+_$SetupClientImpl _$$SetupClientImplFromJson(Map<String, dynamic> json) =>
+    _$SetupClientImpl(
       chat: json['chat'] as int,
       email: json['email'] as String?,
       pic: json['pic'] as String?,
     );
 
-Map<String, dynamic> _$$_SetupClientToJson(_$_SetupClient instance) =>
+Map<String, dynamic> _$$SetupClientImplToJson(_$SetupClientImpl instance) =>
     <String, dynamic>{
       'chat': instance.chat,
       'email': instance.email,

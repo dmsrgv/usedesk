@@ -22,10 +22,10 @@ class Message<C> with _$Message<C> {
       fromJson: Message._chatFromJson,
       toJson: Message._chatToJson,
     )
-        C? chat,
+    C? chat,
     // ignore: invalid_annotation_target
-    @JsonKey(ignore: true)
-        List<MessageButton>? buttons,
+    @JsonKey(includeFromJson: false, includeToJson: false)
+    List<MessageButton>? buttons,
     MessageFile? file,
   }) = _Message<C>;
 
@@ -88,7 +88,7 @@ class MessageFile with _$MessageFile {
     required String content,
     required String size,
     // ignore: invalid_annotation_target
-    @JsonKey(ignore: true) Uint8List? bytes,
+    @JsonKey(includeFromJson: false, includeToJson: false) Uint8List? bytes,
   }) = _MessageFile;
 
   factory MessageFile.fromJson(Map<String, dynamic> json) =>
@@ -105,7 +105,7 @@ class MessagePayload with _$MessagePayload {
       name: 'message_id',
       fromJson: MessagePayload._messageIdFromJson,
     )
-        int? messageId,
+    int? messageId,
   }) = _MessagePayload;
 
   factory MessagePayload.fromJson(Map<String, dynamic> json) =>

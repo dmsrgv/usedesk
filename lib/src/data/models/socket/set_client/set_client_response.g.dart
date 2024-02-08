@@ -6,45 +6,46 @@ part of 'set_client_response.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SetClientResponse _$$_SetClientResponseFromJson(Map<String, dynamic> json) =>
-    _$_SetClientResponse(
+_$SetClientResponseImpl _$$SetClientResponseImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SetClientResponseImpl(
       type: json['type'] as String,
       state: SetClientResponseState.fromJson(
           json['state'] as Map<String, dynamic>),
       reset: json['reset'] as bool?,
     );
 
-Map<String, dynamic> _$$_SetClientResponseToJson(
-        _$_SetClientResponse instance) =>
+Map<String, dynamic> _$$SetClientResponseImplToJson(
+        _$SetClientResponseImpl instance) =>
     <String, dynamic>{
       'type': instance.type,
       'state': instance.state.toJson(),
       'reset': instance.reset,
     };
 
-_$_SetClientResponseState _$$_SetClientResponseStateFromJson(
+_$SetClientResponseStateImpl _$$SetClientResponseStateImplFromJson(
         Map<String, dynamic> json) =>
-    _$_SetClientResponseState(
+    _$SetClientResponseStateImpl(
       client: SetClientResponseStateClient.fromJson(
           json['client'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_SetClientResponseStateToJson(
-        _$_SetClientResponseState instance) =>
+Map<String, dynamic> _$$SetClientResponseStateImplToJson(
+        _$SetClientResponseStateImpl instance) =>
     <String, dynamic>{
       'client': instance.client.toJson(),
     };
 
-_$_SetClientResponseStateClient _$$_SetClientResponseStateClientFromJson(
+_$SetClientResponseStateClientImpl _$$SetClientResponseStateClientImplFromJson(
         Map<String, dynamic> json) =>
-    _$_SetClientResponseStateClient(
+    _$SetClientResponseStateClientImpl(
       token: json['token'] as String?,
       email: json['email'] as String?,
       chat: json['chat'] as int?,
     );
 
-Map<String, dynamic> _$$_SetClientResponseStateClientToJson(
-        _$_SetClientResponseStateClient instance) =>
+Map<String, dynamic> _$$SetClientResponseStateClientImplToJson(
+        _$SetClientResponseStateClientImpl instance) =>
     <String, dynamic>{
       'token': instance.token,
       'email': instance.email,

@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of 'inited_response.dart';
 
@@ -12,7 +12,7 @@ part of 'inited_response.dart';
 T _$identity<T>(T value) => value;
 
 final _privateConstructorUsedError = UnsupportedError(
-    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
+    'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 InitedResponse _$InitedResponseFromJson(Map<String, dynamic> json) {
   return _InitedResponse.fromJson(json);
@@ -34,58 +34,63 @@ mixin _$InitedResponse {
 abstract class $InitedResponseCopyWith<$Res> {
   factory $InitedResponseCopyWith(
           InitedResponse value, $Res Function(InitedResponse) then) =
-      _$InitedResponseCopyWithImpl<$Res>;
+      _$InitedResponseCopyWithImpl<$Res, InitedResponse>;
+  @useResult
   $Res call({String type, String token, Setup setup});
 
   $SetupCopyWith<$Res> get setup;
 }
 
 /// @nodoc
-class _$InitedResponseCopyWithImpl<$Res>
+class _$InitedResponseCopyWithImpl<$Res, $Val extends InitedResponse>
     implements $InitedResponseCopyWith<$Res> {
   _$InitedResponseCopyWithImpl(this._value, this._then);
 
-  final InitedResponse _value;
   // ignore: unused_field
-  final $Res Function(InitedResponse) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
-    Object? token = freezed,
-    Object? setup = freezed,
+    Object? type = null,
+    Object? token = null,
+    Object? setup = null,
   }) {
     return _then(_value.copyWith(
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      token: token == freezed
+      token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
-      setup: setup == freezed
+      setup: null == setup
           ? _value.setup
           : setup // ignore: cast_nullable_to_non_nullable
               as Setup,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SetupCopyWith<$Res> get setup {
     return $SetupCopyWith<$Res>(_value.setup, (value) {
-      return _then(_value.copyWith(setup: value));
+      return _then(_value.copyWith(setup: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_InitedResponseCopyWith<$Res>
+abstract class _$$InitedResponseImplCopyWith<$Res>
     implements $InitedResponseCopyWith<$Res> {
-  factory _$$_InitedResponseCopyWith(
-          _$_InitedResponse value, $Res Function(_$_InitedResponse) then) =
-      __$$_InitedResponseCopyWithImpl<$Res>;
+  factory _$$InitedResponseImplCopyWith(_$InitedResponseImpl value,
+          $Res Function(_$InitedResponseImpl) then) =
+      __$$InitedResponseImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({String type, String token, Setup setup});
 
   @override
@@ -93,32 +98,30 @@ abstract class _$$_InitedResponseCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_InitedResponseCopyWithImpl<$Res>
-    extends _$InitedResponseCopyWithImpl<$Res>
-    implements _$$_InitedResponseCopyWith<$Res> {
-  __$$_InitedResponseCopyWithImpl(
-      _$_InitedResponse _value, $Res Function(_$_InitedResponse) _then)
-      : super(_value, (v) => _then(v as _$_InitedResponse));
+class __$$InitedResponseImplCopyWithImpl<$Res>
+    extends _$InitedResponseCopyWithImpl<$Res, _$InitedResponseImpl>
+    implements _$$InitedResponseImplCopyWith<$Res> {
+  __$$InitedResponseImplCopyWithImpl(
+      _$InitedResponseImpl _value, $Res Function(_$InitedResponseImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_InitedResponse get _value => super._value as _$_InitedResponse;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? type = freezed,
-    Object? token = freezed,
-    Object? setup = freezed,
+    Object? type = null,
+    Object? token = null,
+    Object? setup = null,
   }) {
-    return _then(_$_InitedResponse(
-      type: type == freezed
+    return _then(_$InitedResponseImpl(
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      token: token == freezed
+      token: null == token
           ? _value.token
           : token // ignore: cast_nullable_to_non_nullable
               as String,
-      setup: setup == freezed
+      setup: null == setup
           ? _value.setup
           : setup // ignore: cast_nullable_to_non_nullable
               as Setup,
@@ -128,12 +131,12 @@ class __$$_InitedResponseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_InitedResponse implements _InitedResponse {
-  const _$_InitedResponse(
+class _$InitedResponseImpl implements _InitedResponse {
+  const _$InitedResponseImpl(
       {required this.type, required this.token, required this.setup});
 
-  factory _$_InitedResponse.fromJson(Map<String, dynamic> json) =>
-      _$$_InitedResponseFromJson(json);
+  factory _$InitedResponseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$InitedResponseImplFromJson(json);
 
   @override
   final String type;
@@ -148,31 +151,29 @@ class _$_InitedResponse implements _InitedResponse {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_InitedResponse &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.token, token) &&
-            const DeepCollectionEquality().equals(other.setup, setup));
+            other is _$InitedResponseImpl &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.token, token) || other.token == token) &&
+            (identical(other.setup, setup) || other.setup == setup));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(token),
-      const DeepCollectionEquality().hash(setup));
+  int get hashCode => Object.hash(runtimeType, type, token, setup);
 
   @JsonKey(ignore: true)
   @override
-  _$$_InitedResponseCopyWith<_$_InitedResponse> get copyWith =>
-      __$$_InitedResponseCopyWithImpl<_$_InitedResponse>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$InitedResponseImplCopyWith<_$InitedResponseImpl> get copyWith =>
+      __$$InitedResponseImplCopyWithImpl<_$InitedResponseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_InitedResponseToJson(
+    return _$$InitedResponseImplToJson(
       this,
     );
   }
@@ -182,10 +183,10 @@ abstract class _InitedResponse implements InitedResponse, BaseResponse {
   const factory _InitedResponse(
       {required final String type,
       required final String token,
-      required final Setup setup}) = _$_InitedResponse;
+      required final Setup setup}) = _$InitedResponseImpl;
 
   factory _InitedResponse.fromJson(Map<String, dynamic> json) =
-      _$_InitedResponse.fromJson;
+      _$InitedResponseImpl.fromJson;
 
   @override
   String get type;
@@ -195,7 +196,7 @@ abstract class _InitedResponse implements InitedResponse, BaseResponse {
   Setup get setup;
   @override
   @JsonKey(ignore: true)
-  _$$_InitedResponseCopyWith<_$_InitedResponse> get copyWith =>
+  _$$InitedResponseImplCopyWith<_$InitedResponseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -223,12 +224,13 @@ mixin _$Setup {
 /// @nodoc
 abstract class $SetupCopyWith<$Res> {
   factory $SetupCopyWith(Setup value, $Res Function(Setup) then) =
-      _$SetupCopyWithImpl<$Res>;
+      _$SetupCopyWithImpl<$Res, Setup>;
+  @useResult
   $Res call(
       {bool waitingEmail,
       SetupClient? client,
       @JsonKey(name: 'callback_settings')
-          SetupCallbackSettings? callbackSettings,
+      SetupCallbackSettings? callbackSettings,
       SetupTicket? ticket,
       bool noOperators,
       List<Message> messages});
@@ -239,62 +241,67 @@ abstract class $SetupCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SetupCopyWithImpl<$Res> implements $SetupCopyWith<$Res> {
+class _$SetupCopyWithImpl<$Res, $Val extends Setup>
+    implements $SetupCopyWith<$Res> {
   _$SetupCopyWithImpl(this._value, this._then);
 
-  final Setup _value;
   // ignore: unused_field
-  final $Res Function(Setup) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? waitingEmail = freezed,
+    Object? waitingEmail = null,
     Object? client = freezed,
     Object? callbackSettings = freezed,
     Object? ticket = freezed,
-    Object? noOperators = freezed,
-    Object? messages = freezed,
+    Object? noOperators = null,
+    Object? messages = null,
   }) {
     return _then(_value.copyWith(
-      waitingEmail: waitingEmail == freezed
+      waitingEmail: null == waitingEmail
           ? _value.waitingEmail
           : waitingEmail // ignore: cast_nullable_to_non_nullable
               as bool,
-      client: client == freezed
+      client: freezed == client
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as SetupClient?,
-      callbackSettings: callbackSettings == freezed
+      callbackSettings: freezed == callbackSettings
           ? _value.callbackSettings
           : callbackSettings // ignore: cast_nullable_to_non_nullable
               as SetupCallbackSettings?,
-      ticket: ticket == freezed
+      ticket: freezed == ticket
           ? _value.ticket
           : ticket // ignore: cast_nullable_to_non_nullable
               as SetupTicket?,
-      noOperators: noOperators == freezed
+      noOperators: null == noOperators
           ? _value.noOperators
           : noOperators // ignore: cast_nullable_to_non_nullable
               as bool,
-      messages: messages == freezed
+      messages: null == messages
           ? _value.messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
-    ));
+    ) as $Val);
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SetupClientCopyWith<$Res>? get client {
     if (_value.client == null) {
       return null;
     }
 
     return $SetupClientCopyWith<$Res>(_value.client!, (value) {
-      return _then(_value.copyWith(client: value));
+      return _then(_value.copyWith(client: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SetupCallbackSettingsCopyWith<$Res>? get callbackSettings {
     if (_value.callbackSettings == null) {
       return null;
@@ -302,32 +309,35 @@ class _$SetupCopyWithImpl<$Res> implements $SetupCopyWith<$Res> {
 
     return $SetupCallbackSettingsCopyWith<$Res>(_value.callbackSettings!,
         (value) {
-      return _then(_value.copyWith(callbackSettings: value));
+      return _then(_value.copyWith(callbackSettings: value) as $Val);
     });
   }
 
   @override
+  @pragma('vm:prefer-inline')
   $SetupTicketCopyWith<$Res>? get ticket {
     if (_value.ticket == null) {
       return null;
     }
 
     return $SetupTicketCopyWith<$Res>(_value.ticket!, (value) {
-      return _then(_value.copyWith(ticket: value));
+      return _then(_value.copyWith(ticket: value) as $Val);
     });
   }
 }
 
 /// @nodoc
-abstract class _$$_SetupCopyWith<$Res> implements $SetupCopyWith<$Res> {
-  factory _$$_SetupCopyWith(_$_Setup value, $Res Function(_$_Setup) then) =
-      __$$_SetupCopyWithImpl<$Res>;
+abstract class _$$SetupImplCopyWith<$Res> implements $SetupCopyWith<$Res> {
+  factory _$$SetupImplCopyWith(
+          _$SetupImpl value, $Res Function(_$SetupImpl) then) =
+      __$$SetupImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {bool waitingEmail,
       SetupClient? client,
       @JsonKey(name: 'callback_settings')
-          SetupCallbackSettings? callbackSettings,
+      SetupCallbackSettings? callbackSettings,
       SetupTicket? ticket,
       bool noOperators,
       List<Message> messages});
@@ -341,45 +351,45 @@ abstract class _$$_SetupCopyWith<$Res> implements $SetupCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_SetupCopyWithImpl<$Res> extends _$SetupCopyWithImpl<$Res>
-    implements _$$_SetupCopyWith<$Res> {
-  __$$_SetupCopyWithImpl(_$_Setup _value, $Res Function(_$_Setup) _then)
-      : super(_value, (v) => _then(v as _$_Setup));
+class __$$SetupImplCopyWithImpl<$Res>
+    extends _$SetupCopyWithImpl<$Res, _$SetupImpl>
+    implements _$$SetupImplCopyWith<$Res> {
+  __$$SetupImplCopyWithImpl(
+      _$SetupImpl _value, $Res Function(_$SetupImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_Setup get _value => super._value as _$_Setup;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? waitingEmail = freezed,
+    Object? waitingEmail = null,
     Object? client = freezed,
     Object? callbackSettings = freezed,
     Object? ticket = freezed,
-    Object? noOperators = freezed,
-    Object? messages = freezed,
+    Object? noOperators = null,
+    Object? messages = null,
   }) {
-    return _then(_$_Setup(
-      waitingEmail: waitingEmail == freezed
+    return _then(_$SetupImpl(
+      waitingEmail: null == waitingEmail
           ? _value.waitingEmail
           : waitingEmail // ignore: cast_nullable_to_non_nullable
               as bool,
-      client: client == freezed
+      client: freezed == client
           ? _value.client
           : client // ignore: cast_nullable_to_non_nullable
               as SetupClient?,
-      callbackSettings: callbackSettings == freezed
+      callbackSettings: freezed == callbackSettings
           ? _value.callbackSettings
           : callbackSettings // ignore: cast_nullable_to_non_nullable
               as SetupCallbackSettings?,
-      ticket: ticket == freezed
+      ticket: freezed == ticket
           ? _value.ticket
           : ticket // ignore: cast_nullable_to_non_nullable
               as SetupTicket?,
-      noOperators: noOperators == freezed
+      noOperators: null == noOperators
           ? _value.noOperators
           : noOperators // ignore: cast_nullable_to_non_nullable
               as bool,
-      messages: messages == freezed
+      messages: null == messages
           ? _value._messages
           : messages // ignore: cast_nullable_to_non_nullable
               as List<Message>,
@@ -389,8 +399,8 @@ class __$$_SetupCopyWithImpl<$Res> extends _$SetupCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Setup implements _Setup {
-  const _$_Setup(
+class _$SetupImpl implements _Setup {
+  const _$SetupImpl(
       {required this.waitingEmail,
       this.client,
       @JsonKey(name: 'callback_settings') this.callbackSettings,
@@ -399,8 +409,8 @@ class _$_Setup implements _Setup {
       final List<Message> messages = const []})
       : _messages = messages;
 
-  factory _$_Setup.fromJson(Map<String, dynamic> json) =>
-      _$$_SetupFromJson(json);
+  factory _$SetupImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SetupImplFromJson(json);
 
   @override
   final bool waitingEmail;
@@ -419,6 +429,7 @@ class _$_Setup implements _Setup {
   @override
   @JsonKey()
   List<Message> get messages {
+    if (_messages is EqualUnmodifiableListView) return _messages;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_messages);
   }
@@ -429,18 +440,18 @@ class _$_Setup implements _Setup {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Setup &&
-            const DeepCollectionEquality()
-                .equals(other.waitingEmail, waitingEmail) &&
-            const DeepCollectionEquality().equals(other.client, client) &&
-            const DeepCollectionEquality()
-                .equals(other.callbackSettings, callbackSettings) &&
-            const DeepCollectionEquality().equals(other.ticket, ticket) &&
-            const DeepCollectionEquality()
-                .equals(other.noOperators, noOperators) &&
+            other is _$SetupImpl &&
+            (identical(other.waitingEmail, waitingEmail) ||
+                other.waitingEmail == waitingEmail) &&
+            (identical(other.client, client) || other.client == client) &&
+            (identical(other.callbackSettings, callbackSettings) ||
+                other.callbackSettings == callbackSettings) &&
+            (identical(other.ticket, ticket) || other.ticket == ticket) &&
+            (identical(other.noOperators, noOperators) ||
+                other.noOperators == noOperators) &&
             const DeepCollectionEquality().equals(other._messages, _messages));
   }
 
@@ -448,21 +459,22 @@ class _$_Setup implements _Setup {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(waitingEmail),
-      const DeepCollectionEquality().hash(client),
-      const DeepCollectionEquality().hash(callbackSettings),
-      const DeepCollectionEquality().hash(ticket),
-      const DeepCollectionEquality().hash(noOperators),
+      waitingEmail,
+      client,
+      callbackSettings,
+      ticket,
+      noOperators,
       const DeepCollectionEquality().hash(_messages));
 
   @JsonKey(ignore: true)
   @override
-  _$$_SetupCopyWith<_$_Setup> get copyWith =>
-      __$$_SetupCopyWithImpl<_$_Setup>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SetupImplCopyWith<_$SetupImpl> get copyWith =>
+      __$$SetupImplCopyWithImpl<_$SetupImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SetupToJson(
+    return _$$SetupImplToJson(
       this,
     );
   }
@@ -473,12 +485,12 @@ abstract class _Setup implements Setup {
       {required final bool waitingEmail,
       final SetupClient? client,
       @JsonKey(name: 'callback_settings')
-          final SetupCallbackSettings? callbackSettings,
+      final SetupCallbackSettings? callbackSettings,
       final SetupTicket? ticket,
       final bool noOperators,
-      final List<Message> messages}) = _$_Setup;
+      final List<Message> messages}) = _$SetupImpl;
 
-  factory _Setup.fromJson(Map<String, dynamic> json) = _$_Setup.fromJson;
+  factory _Setup.fromJson(Map<String, dynamic> json) = _$SetupImpl.fromJson;
 
   @override
   bool get waitingEmail;
@@ -495,7 +507,7 @@ abstract class _Setup implements Setup {
   List<Message> get messages;
   @override
   @JsonKey(ignore: true)
-  _$$_SetupCopyWith<_$_Setup> get copyWith =>
+  _$$SetupImplCopyWith<_$SetupImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -529,7 +541,8 @@ mixin _$SetupTicket {
 abstract class $SetupTicketCopyWith<$Res> {
   factory $SetupTicketCopyWith(
           SetupTicket value, $Res Function(SetupTicket) then) =
-      _$SetupTicketCopyWithImpl<$Res>;
+      _$SetupTicketCopyWithImpl<$Res, SetupTicket>;
+  @useResult
   $Res call(
       {int id,
       int? assigneeId,
@@ -547,93 +560,97 @@ abstract class $SetupTicketCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SetupTicketCopyWithImpl<$Res> implements $SetupTicketCopyWith<$Res> {
+class _$SetupTicketCopyWithImpl<$Res, $Val extends SetupTicket>
+    implements $SetupTicketCopyWith<$Res> {
   _$SetupTicketCopyWithImpl(this._value, this._then);
 
-  final SetupTicket _value;
   // ignore: unused_field
-  final $Res Function(SetupTicket) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? assigneeId = freezed,
-    Object? clientId = freezed,
-    Object? companyId = freezed,
+    Object? clientId = null,
+    Object? companyId = null,
     Object? email = freezed,
     Object? subject = freezed,
-    Object? channelId = freezed,
-    Object? publishedAt = freezed,
-    Object? statusUpdatedAt = freezed,
-    Object? channel = freezed,
-    Object? priority = freezed,
-    Object? type = freezed,
-    Object? statusId = freezed,
+    Object? channelId = null,
+    Object? publishedAt = null,
+    Object? statusUpdatedAt = null,
+    Object? channel = null,
+    Object? priority = null,
+    Object? type = null,
+    Object? statusId = null,
   }) {
     return _then(_value.copyWith(
-      id: id == freezed
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      assigneeId: assigneeId == freezed
+      assigneeId: freezed == assigneeId
           ? _value.assigneeId
           : assigneeId // ignore: cast_nullable_to_non_nullable
               as int?,
-      clientId: clientId == freezed
+      clientId: null == clientId
           ? _value.clientId
           : clientId // ignore: cast_nullable_to_non_nullable
               as int,
-      companyId: companyId == freezed
+      companyId: null == companyId
           ? _value.companyId
           : companyId // ignore: cast_nullable_to_non_nullable
               as int,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      subject: subject == freezed
+      subject: freezed == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as String?,
-      channelId: channelId == freezed
+      channelId: null == channelId
           ? _value.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
               as int,
-      publishedAt: publishedAt == freezed
+      publishedAt: null == publishedAt
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      statusUpdatedAt: statusUpdatedAt == freezed
+      statusUpdatedAt: null == statusUpdatedAt
           ? _value.statusUpdatedAt
           : statusUpdatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      channel: channel == freezed
+      channel: null == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String,
-      priority: priority == freezed
+      priority: null == priority
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      statusId: statusId == freezed
+      statusId: null == statusId
           ? _value.statusId
           : statusId // ignore: cast_nullable_to_non_nullable
               as int,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_SetupTicketCopyWith<$Res>
+abstract class _$$SetupTicketImplCopyWith<$Res>
     implements $SetupTicketCopyWith<$Res> {
-  factory _$$_SetupTicketCopyWith(
-          _$_SetupTicket value, $Res Function(_$_SetupTicket) then) =
-      __$$_SetupTicketCopyWithImpl<$Res>;
+  factory _$$SetupTicketImplCopyWith(
+          _$SetupTicketImpl value, $Res Function(_$SetupTicketImpl) then) =
+      __$$SetupTicketImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {int id,
       int? assigneeId,
@@ -651,81 +668,80 @@ abstract class _$$_SetupTicketCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SetupTicketCopyWithImpl<$Res> extends _$SetupTicketCopyWithImpl<$Res>
-    implements _$$_SetupTicketCopyWith<$Res> {
-  __$$_SetupTicketCopyWithImpl(
-      _$_SetupTicket _value, $Res Function(_$_SetupTicket) _then)
-      : super(_value, (v) => _then(v as _$_SetupTicket));
+class __$$SetupTicketImplCopyWithImpl<$Res>
+    extends _$SetupTicketCopyWithImpl<$Res, _$SetupTicketImpl>
+    implements _$$SetupTicketImplCopyWith<$Res> {
+  __$$SetupTicketImplCopyWithImpl(
+      _$SetupTicketImpl _value, $Res Function(_$SetupTicketImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_SetupTicket get _value => super._value as _$_SetupTicket;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? id = freezed,
+    Object? id = null,
     Object? assigneeId = freezed,
-    Object? clientId = freezed,
-    Object? companyId = freezed,
+    Object? clientId = null,
+    Object? companyId = null,
     Object? email = freezed,
     Object? subject = freezed,
-    Object? channelId = freezed,
-    Object? publishedAt = freezed,
-    Object? statusUpdatedAt = freezed,
-    Object? channel = freezed,
-    Object? priority = freezed,
-    Object? type = freezed,
-    Object? statusId = freezed,
+    Object? channelId = null,
+    Object? publishedAt = null,
+    Object? statusUpdatedAt = null,
+    Object? channel = null,
+    Object? priority = null,
+    Object? type = null,
+    Object? statusId = null,
   }) {
-    return _then(_$_SetupTicket(
-      id: id == freezed
+    return _then(_$SetupTicketImpl(
+      id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
               as int,
-      assigneeId: assigneeId == freezed
+      assigneeId: freezed == assigneeId
           ? _value.assigneeId
           : assigneeId // ignore: cast_nullable_to_non_nullable
               as int?,
-      clientId: clientId == freezed
+      clientId: null == clientId
           ? _value.clientId
           : clientId // ignore: cast_nullable_to_non_nullable
               as int,
-      companyId: companyId == freezed
+      companyId: null == companyId
           ? _value.companyId
           : companyId // ignore: cast_nullable_to_non_nullable
               as int,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      subject: subject == freezed
+      subject: freezed == subject
           ? _value.subject
           : subject // ignore: cast_nullable_to_non_nullable
               as String?,
-      channelId: channelId == freezed
+      channelId: null == channelId
           ? _value.channelId
           : channelId // ignore: cast_nullable_to_non_nullable
               as int,
-      publishedAt: publishedAt == freezed
+      publishedAt: null == publishedAt
           ? _value.publishedAt
           : publishedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      statusUpdatedAt: statusUpdatedAt == freezed
+      statusUpdatedAt: null == statusUpdatedAt
           ? _value.statusUpdatedAt
           : statusUpdatedAt // ignore: cast_nullable_to_non_nullable
               as DateTime,
-      channel: channel == freezed
+      channel: null == channel
           ? _value.channel
           : channel // ignore: cast_nullable_to_non_nullable
               as String,
-      priority: priority == freezed
+      priority: null == priority
           ? _value.priority
           : priority // ignore: cast_nullable_to_non_nullable
               as String,
-      type: type == freezed
+      type: null == type
           ? _value.type
           : type // ignore: cast_nullable_to_non_nullable
               as String,
-      statusId: statusId == freezed
+      statusId: null == statusId
           ? _value.statusId
           : statusId // ignore: cast_nullable_to_non_nullable
               as int,
@@ -736,8 +752,8 @@ class __$$_SetupTicketCopyWithImpl<$Res> extends _$SetupTicketCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_SetupTicket implements _SetupTicket {
-  const _$_SetupTicket(
+class _$SetupTicketImpl implements _SetupTicket {
+  const _$SetupTicketImpl(
       {required this.id,
       required this.assigneeId,
       required this.clientId,
@@ -752,8 +768,8 @@ class _$_SetupTicket implements _SetupTicket {
       required this.type,
       required this.statusId});
 
-  factory _$_SetupTicket.fromJson(Map<String, dynamic> json) =>
-      _$$_SetupTicketFromJson(json);
+  factory _$SetupTicketImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SetupTicketImplFromJson(json);
 
   @override
   final int id;
@@ -788,54 +804,60 @@ class _$_SetupTicket implements _SetupTicket {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SetupTicket &&
-            const DeepCollectionEquality().equals(other.id, id) &&
-            const DeepCollectionEquality()
-                .equals(other.assigneeId, assigneeId) &&
-            const DeepCollectionEquality().equals(other.clientId, clientId) &&
-            const DeepCollectionEquality().equals(other.companyId, companyId) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.subject, subject) &&
-            const DeepCollectionEquality().equals(other.channelId, channelId) &&
-            const DeepCollectionEquality()
-                .equals(other.publishedAt, publishedAt) &&
-            const DeepCollectionEquality()
-                .equals(other.statusUpdatedAt, statusUpdatedAt) &&
-            const DeepCollectionEquality().equals(other.channel, channel) &&
-            const DeepCollectionEquality().equals(other.priority, priority) &&
-            const DeepCollectionEquality().equals(other.type, type) &&
-            const DeepCollectionEquality().equals(other.statusId, statusId));
+            other is _$SetupTicketImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.assigneeId, assigneeId) ||
+                other.assigneeId == assigneeId) &&
+            (identical(other.clientId, clientId) ||
+                other.clientId == clientId) &&
+            (identical(other.companyId, companyId) ||
+                other.companyId == companyId) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.subject, subject) || other.subject == subject) &&
+            (identical(other.channelId, channelId) ||
+                other.channelId == channelId) &&
+            (identical(other.publishedAt, publishedAt) ||
+                other.publishedAt == publishedAt) &&
+            (identical(other.statusUpdatedAt, statusUpdatedAt) ||
+                other.statusUpdatedAt == statusUpdatedAt) &&
+            (identical(other.channel, channel) || other.channel == channel) &&
+            (identical(other.priority, priority) ||
+                other.priority == priority) &&
+            (identical(other.type, type) || other.type == type) &&
+            (identical(other.statusId, statusId) ||
+                other.statusId == statusId));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(id),
-      const DeepCollectionEquality().hash(assigneeId),
-      const DeepCollectionEquality().hash(clientId),
-      const DeepCollectionEquality().hash(companyId),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(subject),
-      const DeepCollectionEquality().hash(channelId),
-      const DeepCollectionEquality().hash(publishedAt),
-      const DeepCollectionEquality().hash(statusUpdatedAt),
-      const DeepCollectionEquality().hash(channel),
-      const DeepCollectionEquality().hash(priority),
-      const DeepCollectionEquality().hash(type),
-      const DeepCollectionEquality().hash(statusId));
+      id,
+      assigneeId,
+      clientId,
+      companyId,
+      email,
+      subject,
+      channelId,
+      publishedAt,
+      statusUpdatedAt,
+      channel,
+      priority,
+      type,
+      statusId);
 
   @JsonKey(ignore: true)
   @override
-  _$$_SetupTicketCopyWith<_$_SetupTicket> get copyWith =>
-      __$$_SetupTicketCopyWithImpl<_$_SetupTicket>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SetupTicketImplCopyWith<_$SetupTicketImpl> get copyWith =>
+      __$$SetupTicketImplCopyWithImpl<_$SetupTicketImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SetupTicketToJson(
+    return _$$SetupTicketImplToJson(
       this,
     );
   }
@@ -855,10 +877,10 @@ abstract class _SetupTicket implements SetupTicket {
       required final String channel,
       required final String priority,
       required final String type,
-      required final int statusId}) = _$_SetupTicket;
+      required final int statusId}) = _$SetupTicketImpl;
 
   factory _SetupTicket.fromJson(Map<String, dynamic> json) =
-      _$_SetupTicket.fromJson;
+      _$SetupTicketImpl.fromJson;
 
   @override
   int get id;
@@ -888,7 +910,7 @@ abstract class _SetupTicket implements SetupTicket {
   int get statusId;
   @override
   @JsonKey(ignore: true)
-  _$$_SetupTicketCopyWith<_$_SetupTicket> get copyWith =>
+  _$$SetupTicketImplCopyWith<_$SetupTicketImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -917,7 +939,8 @@ mixin _$SetupCallbackSettings {
 abstract class $SetupCallbackSettingsCopyWith<$Res> {
   factory $SetupCallbackSettingsCopyWith(SetupCallbackSettings value,
           $Res Function(SetupCallbackSettings) then) =
-      _$SetupCallbackSettingsCopyWithImpl<$Res>;
+      _$SetupCallbackSettingsCopyWithImpl<$Res, SetupCallbackSettings>;
+  @useResult
   $Res call(
       {String workType,
       String callbackTitle,
@@ -929,64 +952,69 @@ abstract class $SetupCallbackSettingsCopyWith<$Res> {
 }
 
 /// @nodoc
-class _$SetupCallbackSettingsCopyWithImpl<$Res>
+class _$SetupCallbackSettingsCopyWithImpl<$Res,
+        $Val extends SetupCallbackSettings>
     implements $SetupCallbackSettingsCopyWith<$Res> {
   _$SetupCallbackSettingsCopyWithImpl(this._value, this._then);
 
-  final SetupCallbackSettings _value;
   // ignore: unused_field
-  final $Res Function(SetupCallbackSettings) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? workType = freezed,
-    Object? callbackTitle = freezed,
-    Object? callbackGreeting = freezed,
-    Object? topics = freezed,
-    Object? topicsTitle = freezed,
-    Object? topicsRequired = freezed,
-    Object? customFields = freezed,
+    Object? workType = null,
+    Object? callbackTitle = null,
+    Object? callbackGreeting = null,
+    Object? topics = null,
+    Object? topicsTitle = null,
+    Object? topicsRequired = null,
+    Object? customFields = null,
   }) {
     return _then(_value.copyWith(
-      workType: workType == freezed
+      workType: null == workType
           ? _value.workType
           : workType // ignore: cast_nullable_to_non_nullable
               as String,
-      callbackTitle: callbackTitle == freezed
+      callbackTitle: null == callbackTitle
           ? _value.callbackTitle
           : callbackTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      callbackGreeting: callbackGreeting == freezed
+      callbackGreeting: null == callbackGreeting
           ? _value.callbackGreeting
           : callbackGreeting // ignore: cast_nullable_to_non_nullable
               as String,
-      topics: topics == freezed
+      topics: null == topics
           ? _value.topics
           : topics // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      topicsTitle: topicsTitle == freezed
+      topicsTitle: null == topicsTitle
           ? _value.topicsTitle
           : topicsTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      topicsRequired: topicsRequired == freezed
+      topicsRequired: null == topicsRequired
           ? _value.topicsRequired
           : topicsRequired // ignore: cast_nullable_to_non_nullable
               as int,
-      customFields: customFields == freezed
+      customFields: null == customFields
           ? _value.customFields
           : customFields // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_SetupCallbackSettingsCopyWith<$Res>
+abstract class _$$SetupCallbackSettingsImplCopyWith<$Res>
     implements $SetupCallbackSettingsCopyWith<$Res> {
-  factory _$$_SetupCallbackSettingsCopyWith(_$_SetupCallbackSettings value,
-          $Res Function(_$_SetupCallbackSettings) then) =
-      __$$_SetupCallbackSettingsCopyWithImpl<$Res>;
+  factory _$$SetupCallbackSettingsImplCopyWith(
+          _$SetupCallbackSettingsImpl value,
+          $Res Function(_$SetupCallbackSettingsImpl) then) =
+      __$$SetupCallbackSettingsImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call(
       {String workType,
       String callbackTitle,
@@ -998,53 +1026,51 @@ abstract class _$$_SetupCallbackSettingsCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_SetupCallbackSettingsCopyWithImpl<$Res>
-    extends _$SetupCallbackSettingsCopyWithImpl<$Res>
-    implements _$$_SetupCallbackSettingsCopyWith<$Res> {
-  __$$_SetupCallbackSettingsCopyWithImpl(_$_SetupCallbackSettings _value,
-      $Res Function(_$_SetupCallbackSettings) _then)
-      : super(_value, (v) => _then(v as _$_SetupCallbackSettings));
+class __$$SetupCallbackSettingsImplCopyWithImpl<$Res>
+    extends _$SetupCallbackSettingsCopyWithImpl<$Res,
+        _$SetupCallbackSettingsImpl>
+    implements _$$SetupCallbackSettingsImplCopyWith<$Res> {
+  __$$SetupCallbackSettingsImplCopyWithImpl(_$SetupCallbackSettingsImpl _value,
+      $Res Function(_$SetupCallbackSettingsImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_SetupCallbackSettings get _value =>
-      super._value as _$_SetupCallbackSettings;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? workType = freezed,
-    Object? callbackTitle = freezed,
-    Object? callbackGreeting = freezed,
-    Object? topics = freezed,
-    Object? topicsTitle = freezed,
-    Object? topicsRequired = freezed,
-    Object? customFields = freezed,
+    Object? workType = null,
+    Object? callbackTitle = null,
+    Object? callbackGreeting = null,
+    Object? topics = null,
+    Object? topicsTitle = null,
+    Object? topicsRequired = null,
+    Object? customFields = null,
   }) {
-    return _then(_$_SetupCallbackSettings(
-      workType: workType == freezed
+    return _then(_$SetupCallbackSettingsImpl(
+      workType: null == workType
           ? _value.workType
           : workType // ignore: cast_nullable_to_non_nullable
               as String,
-      callbackTitle: callbackTitle == freezed
+      callbackTitle: null == callbackTitle
           ? _value.callbackTitle
           : callbackTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      callbackGreeting: callbackGreeting == freezed
+      callbackGreeting: null == callbackGreeting
           ? _value.callbackGreeting
           : callbackGreeting // ignore: cast_nullable_to_non_nullable
               as String,
-      topics: topics == freezed
+      topics: null == topics
           ? _value._topics
           : topics // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
-      topicsTitle: topicsTitle == freezed
+      topicsTitle: null == topicsTitle
           ? _value.topicsTitle
           : topicsTitle // ignore: cast_nullable_to_non_nullable
               as String,
-      topicsRequired: topicsRequired == freezed
+      topicsRequired: null == topicsRequired
           ? _value.topicsRequired
           : topicsRequired // ignore: cast_nullable_to_non_nullable
               as int,
-      customFields: customFields == freezed
+      customFields: null == customFields
           ? _value._customFields
           : customFields // ignore: cast_nullable_to_non_nullable
               as List<dynamic>,
@@ -1055,8 +1081,8 @@ class __$$_SetupCallbackSettingsCopyWithImpl<$Res>
 /// @nodoc
 
 @JsonSerializable(fieldRename: FieldRename.snake)
-class _$_SetupCallbackSettings implements _SetupCallbackSettings {
-  const _$_SetupCallbackSettings(
+class _$SetupCallbackSettingsImpl implements _SetupCallbackSettings {
+  const _$SetupCallbackSettingsImpl(
       {required this.workType,
       required this.callbackTitle,
       required this.callbackGreeting,
@@ -1067,8 +1093,8 @@ class _$_SetupCallbackSettings implements _SetupCallbackSettings {
       : _topics = topics,
         _customFields = customFields;
 
-  factory _$_SetupCallbackSettings.fromJson(Map<String, dynamic> json) =>
-      _$$_SetupCallbackSettingsFromJson(json);
+  factory _$SetupCallbackSettingsImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SetupCallbackSettingsImplFromJson(json);
 
   @override
   final String workType;
@@ -1079,6 +1105,7 @@ class _$_SetupCallbackSettings implements _SetupCallbackSettings {
   final List<dynamic> _topics;
   @override
   List<dynamic> get topics {
+    if (_topics is EqualUnmodifiableListView) return _topics;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_topics);
   }
@@ -1090,6 +1117,7 @@ class _$_SetupCallbackSettings implements _SetupCallbackSettings {
   final List<dynamic> _customFields;
   @override
   List<dynamic> get customFields {
+    if (_customFields is EqualUnmodifiableListView) return _customFields;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_customFields);
   }
@@ -1100,20 +1128,21 @@ class _$_SetupCallbackSettings implements _SetupCallbackSettings {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SetupCallbackSettings &&
-            const DeepCollectionEquality().equals(other.workType, workType) &&
-            const DeepCollectionEquality()
-                .equals(other.callbackTitle, callbackTitle) &&
-            const DeepCollectionEquality()
-                .equals(other.callbackGreeting, callbackGreeting) &&
+            other is _$SetupCallbackSettingsImpl &&
+            (identical(other.workType, workType) ||
+                other.workType == workType) &&
+            (identical(other.callbackTitle, callbackTitle) ||
+                other.callbackTitle == callbackTitle) &&
+            (identical(other.callbackGreeting, callbackGreeting) ||
+                other.callbackGreeting == callbackGreeting) &&
             const DeepCollectionEquality().equals(other._topics, _topics) &&
-            const DeepCollectionEquality()
-                .equals(other.topicsTitle, topicsTitle) &&
-            const DeepCollectionEquality()
-                .equals(other.topicsRequired, topicsRequired) &&
+            (identical(other.topicsTitle, topicsTitle) ||
+                other.topicsTitle == topicsTitle) &&
+            (identical(other.topicsRequired, topicsRequired) ||
+                other.topicsRequired == topicsRequired) &&
             const DeepCollectionEquality()
                 .equals(other._customFields, _customFields));
   }
@@ -1122,23 +1151,24 @@ class _$_SetupCallbackSettings implements _SetupCallbackSettings {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(workType),
-      const DeepCollectionEquality().hash(callbackTitle),
-      const DeepCollectionEquality().hash(callbackGreeting),
+      workType,
+      callbackTitle,
+      callbackGreeting,
       const DeepCollectionEquality().hash(_topics),
-      const DeepCollectionEquality().hash(topicsTitle),
-      const DeepCollectionEquality().hash(topicsRequired),
+      topicsTitle,
+      topicsRequired,
       const DeepCollectionEquality().hash(_customFields));
 
   @JsonKey(ignore: true)
   @override
-  _$$_SetupCallbackSettingsCopyWith<_$_SetupCallbackSettings> get copyWith =>
-      __$$_SetupCallbackSettingsCopyWithImpl<_$_SetupCallbackSettings>(
-          this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SetupCallbackSettingsImplCopyWith<_$SetupCallbackSettingsImpl>
+      get copyWith => __$$SetupCallbackSettingsImplCopyWithImpl<
+          _$SetupCallbackSettingsImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SetupCallbackSettingsToJson(
+    return _$$SetupCallbackSettingsImplToJson(
       this,
     );
   }
@@ -1152,10 +1182,10 @@ abstract class _SetupCallbackSettings implements SetupCallbackSettings {
       required final List<dynamic> topics,
       required final String topicsTitle,
       required final int topicsRequired,
-      required final List<dynamic> customFields}) = _$_SetupCallbackSettings;
+      required final List<dynamic> customFields}) = _$SetupCallbackSettingsImpl;
 
   factory _SetupCallbackSettings.fromJson(Map<String, dynamic> json) =
-      _$_SetupCallbackSettings.fromJson;
+      _$SetupCallbackSettingsImpl.fromJson;
 
   @override
   String get workType;
@@ -1173,8 +1203,8 @@ abstract class _SetupCallbackSettings implements SetupCallbackSettings {
   List<dynamic> get customFields;
   @override
   @JsonKey(ignore: true)
-  _$$_SetupCallbackSettingsCopyWith<_$_SetupCallbackSettings> get copyWith =>
-      throw _privateConstructorUsedError;
+  _$$SetupCallbackSettingsImplCopyWith<_$SetupCallbackSettingsImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 SetupClient _$SetupClientFromJson(Map<String, dynamic> json) {
@@ -1197,77 +1227,81 @@ mixin _$SetupClient {
 abstract class $SetupClientCopyWith<$Res> {
   factory $SetupClientCopyWith(
           SetupClient value, $Res Function(SetupClient) then) =
-      _$SetupClientCopyWithImpl<$Res>;
+      _$SetupClientCopyWithImpl<$Res, SetupClient>;
+  @useResult
   $Res call({int chat, String? email, String? pic});
 }
 
 /// @nodoc
-class _$SetupClientCopyWithImpl<$Res> implements $SetupClientCopyWith<$Res> {
+class _$SetupClientCopyWithImpl<$Res, $Val extends SetupClient>
+    implements $SetupClientCopyWith<$Res> {
   _$SetupClientCopyWithImpl(this._value, this._then);
 
-  final SetupClient _value;
   // ignore: unused_field
-  final $Res Function(SetupClient) _then;
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
 
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? chat = freezed,
+    Object? chat = null,
     Object? email = freezed,
     Object? pic = freezed,
   }) {
     return _then(_value.copyWith(
-      chat: chat == freezed
+      chat: null == chat
           ? _value.chat
           : chat // ignore: cast_nullable_to_non_nullable
               as int,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      pic: pic == freezed
+      pic: freezed == pic
           ? _value.pic
           : pic // ignore: cast_nullable_to_non_nullable
               as String?,
-    ));
+    ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$_SetupClientCopyWith<$Res>
+abstract class _$$SetupClientImplCopyWith<$Res>
     implements $SetupClientCopyWith<$Res> {
-  factory _$$_SetupClientCopyWith(
-          _$_SetupClient value, $Res Function(_$_SetupClient) then) =
-      __$$_SetupClientCopyWithImpl<$Res>;
+  factory _$$SetupClientImplCopyWith(
+          _$SetupClientImpl value, $Res Function(_$SetupClientImpl) then) =
+      __$$SetupClientImplCopyWithImpl<$Res>;
   @override
+  @useResult
   $Res call({int chat, String? email, String? pic});
 }
 
 /// @nodoc
-class __$$_SetupClientCopyWithImpl<$Res> extends _$SetupClientCopyWithImpl<$Res>
-    implements _$$_SetupClientCopyWith<$Res> {
-  __$$_SetupClientCopyWithImpl(
-      _$_SetupClient _value, $Res Function(_$_SetupClient) _then)
-      : super(_value, (v) => _then(v as _$_SetupClient));
+class __$$SetupClientImplCopyWithImpl<$Res>
+    extends _$SetupClientCopyWithImpl<$Res, _$SetupClientImpl>
+    implements _$$SetupClientImplCopyWith<$Res> {
+  __$$SetupClientImplCopyWithImpl(
+      _$SetupClientImpl _value, $Res Function(_$SetupClientImpl) _then)
+      : super(_value, _then);
 
-  @override
-  _$_SetupClient get _value => super._value as _$_SetupClient;
-
+  @pragma('vm:prefer-inline')
   @override
   $Res call({
-    Object? chat = freezed,
+    Object? chat = null,
     Object? email = freezed,
     Object? pic = freezed,
   }) {
-    return _then(_$_SetupClient(
-      chat: chat == freezed
+    return _then(_$SetupClientImpl(
+      chat: null == chat
           ? _value.chat
           : chat // ignore: cast_nullable_to_non_nullable
               as int,
-      email: email == freezed
+      email: freezed == email
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
               as String?,
-      pic: pic == freezed
+      pic: freezed == pic
           ? _value.pic
           : pic // ignore: cast_nullable_to_non_nullable
               as String?,
@@ -1277,11 +1311,11 @@ class __$$_SetupClientCopyWithImpl<$Res> extends _$SetupClientCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_SetupClient implements _SetupClient {
-  const _$_SetupClient({required this.chat, this.email, this.pic});
+class _$SetupClientImpl implements _SetupClient {
+  const _$SetupClientImpl({required this.chat, this.email, this.pic});
 
-  factory _$_SetupClient.fromJson(Map<String, dynamic> json) =>
-      _$$_SetupClientFromJson(json);
+  factory _$SetupClientImpl.fromJson(Map<String, dynamic> json) =>
+      _$$SetupClientImplFromJson(json);
 
   @override
   final int chat;
@@ -1296,31 +1330,28 @@ class _$_SetupClient implements _SetupClient {
   }
 
   @override
-  bool operator ==(dynamic other) {
+  bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_SetupClient &&
-            const DeepCollectionEquality().equals(other.chat, chat) &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.pic, pic));
+            other is _$SetupClientImpl &&
+            (identical(other.chat, chat) || other.chat == chat) &&
+            (identical(other.email, email) || other.email == email) &&
+            (identical(other.pic, pic) || other.pic == pic));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(chat),
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(pic));
+  int get hashCode => Object.hash(runtimeType, chat, email, pic);
 
   @JsonKey(ignore: true)
   @override
-  _$$_SetupClientCopyWith<_$_SetupClient> get copyWith =>
-      __$$_SetupClientCopyWithImpl<_$_SetupClient>(this, _$identity);
+  @pragma('vm:prefer-inline')
+  _$$SetupClientImplCopyWith<_$SetupClientImpl> get copyWith =>
+      __$$SetupClientImplCopyWithImpl<_$SetupClientImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_SetupClientToJson(
+    return _$$SetupClientImplToJson(
       this,
     );
   }
@@ -1330,10 +1361,10 @@ abstract class _SetupClient implements SetupClient {
   const factory _SetupClient(
       {required final int chat,
       final String? email,
-      final String? pic}) = _$_SetupClient;
+      final String? pic}) = _$SetupClientImpl;
 
   factory _SetupClient.fromJson(Map<String, dynamic> json) =
-      _$_SetupClient.fromJson;
+      _$SetupClientImpl.fromJson;
 
   @override
   int get chat;
@@ -1343,6 +1374,6 @@ abstract class _SetupClient implements SetupClient {
   String? get pic;
   @override
   @JsonKey(ignore: true)
-  _$$_SetupClientCopyWith<_$_SetupClient> get copyWith =>
+  _$$SetupClientImplCopyWith<_$SetupClientImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

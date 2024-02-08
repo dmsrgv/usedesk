@@ -6,22 +6,24 @@ part of 'set_client_request.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SetClientRequest _$$_SetClientRequestFromJson(Map<String, dynamic> json) =>
-    _$_SetClientRequest(
+_$SetClientRequestImpl _$$SetClientRequestImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SetClientRequestImpl(
       type: json['type'] as String? ?? '@@server/chat/SET_CLIENT',
       payload: SetClientRequestPayload.fromJson(
           json['payload'] as Map<String, dynamic>),
     );
 
-Map<String, dynamic> _$$_SetClientRequestToJson(_$_SetClientRequest instance) =>
+Map<String, dynamic> _$$SetClientRequestImplToJson(
+        _$SetClientRequestImpl instance) =>
     <String, dynamic>{
       'type': instance.type,
       'payload': instance.payload.toJson(),
     };
 
-_$_SetClientRequestPayload _$$_SetClientRequestPayloadFromJson(
+_$SetClientRequestPayloadImpl _$$SetClientRequestPayloadImplFromJson(
         Map<String, dynamic> json) =>
-    _$_SetClientRequestPayload(
+    _$SetClientRequestPayloadImpl(
       token: json['token'] as String?,
       email: json['email'] as String?,
       username: json['username'] as String?,
@@ -30,8 +32,8 @@ _$_SetClientRequestPayload _$$_SetClientRequestPayloadFromJson(
       additionalId: json['additional_id'] as String?,
     );
 
-Map<String, dynamic> _$$_SetClientRequestPayloadToJson(
-        _$_SetClientRequestPayload instance) =>
+Map<String, dynamic> _$$SetClientRequestPayloadImplToJson(
+        _$SetClientRequestPayloadImpl instance) =>
     <String, dynamic>{
       'token': instance.token,
       'email': instance.email,
