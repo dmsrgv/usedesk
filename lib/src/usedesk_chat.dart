@@ -32,7 +32,7 @@ class UsedeskChat {
 
   static Future<UsedeskChat> init({
     required UsedeskChatStorageProvider storage,
-    required String token,
+    required String? token,
     required String companyId,
     String? channelId,
     ChatApiConfiguration apiConfig = const ChatApiConfiguration(),
