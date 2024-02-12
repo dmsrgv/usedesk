@@ -27,7 +27,7 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
     required this.companyId,
     required this.channelId,
     required this.debug,
-    this.onSetToken,
+    this.onSaveToken,
     required String? token,
   }) : _clientToken = token {
     _socket = UsedeskChatSocketProvider(
@@ -42,7 +42,7 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
   final String companyId;
   final String? channelId;
   final bool debug;
-  final void Function(String token)? onSetToken;
+  final void Function(String? token)? onSaveToken;
 
   late UsedeskChatSocketProvider _socket;
   String? _clientToken;
@@ -233,7 +233,7 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
 
   Future<void> _setToken(String token) async {
     _clientToken = token;
-    onSetToken?.call(token);
+    onSaveToken?.call(token);
   }
 
   Future<void> _reSendMessages() async {

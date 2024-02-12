@@ -1,5 +1,3 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:usedesk/usedesk.dart';
@@ -40,7 +38,7 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
       companyId: '167613',
       channelId: '53976',
       token: 'TDoD1CBBVBoDEBCBTSBtCBCjNBqBgDeBBDYDpC5TCrCmCxDBClC5DDD3DegC6rDe',
-      onSetToken: (token) {
+      onSaveToken: (token) {
         print(token);
       },
     );
@@ -54,7 +52,7 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Чат'),
+        title: const Text('Чат'),
       ),
       body: FutureBuilder(
           future: initUsedeskChat(),
