@@ -71,7 +71,6 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
                                 itemCount: snapshot.data!.length,
                                 itemBuilder: (context, index) {
                                   final message = snapshot.data![index];
-                                  log(message.buttons.toString());
                                   if (message.text != null) {
                                     return Column(
                                       children: [

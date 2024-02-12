@@ -414,7 +414,8 @@ mixin _$MessageFile {
   String get name => throw _privateConstructorUsedError;
   String get type => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
-  String get size =>
+  String get size => throw _privateConstructorUsedError;
+  String get dataType =>
       throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(includeFromJson: false, includeToJson: false)
   Uint8List? get bytes => throw _privateConstructorUsedError;
@@ -436,6 +437,7 @@ abstract class $MessageFileCopyWith<$Res> {
       String type,
       String content,
       String size,
+      String dataType,
       @JsonKey(includeFromJson: false, includeToJson: false) Uint8List? bytes});
 }
 
@@ -456,6 +458,7 @@ class _$MessageFileCopyWithImpl<$Res, $Val extends MessageFile>
     Object? type = null,
     Object? content = null,
     Object? size = null,
+    Object? dataType = null,
     Object? bytes = freezed,
   }) {
     return _then(_value.copyWith(
@@ -474,6 +477,10 @@ class _$MessageFileCopyWithImpl<$Res, $Val extends MessageFile>
       size: null == size
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
+              as String,
+      dataType: null == dataType
+          ? _value.dataType
+          : dataType // ignore: cast_nullable_to_non_nullable
               as String,
       bytes: freezed == bytes
           ? _value.bytes
@@ -496,6 +503,7 @@ abstract class _$$MessageFileImplCopyWith<$Res>
       String type,
       String content,
       String size,
+      String dataType,
       @JsonKey(includeFromJson: false, includeToJson: false) Uint8List? bytes});
 }
 
@@ -514,6 +522,7 @@ class __$$MessageFileImplCopyWithImpl<$Res>
     Object? type = null,
     Object? content = null,
     Object? size = null,
+    Object? dataType = null,
     Object? bytes = freezed,
   }) {
     return _then(_$MessageFileImpl(
@@ -533,6 +542,10 @@ class __$$MessageFileImplCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as String,
+      dataType: null == dataType
+          ? _value.dataType
+          : dataType // ignore: cast_nullable_to_non_nullable
+              as String,
       bytes: freezed == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
@@ -549,6 +562,7 @@ class _$MessageFileImpl implements _MessageFile {
       required this.type,
       required this.content,
       required this.size,
+      required this.dataType,
       @JsonKey(includeFromJson: false, includeToJson: false) this.bytes});
 
   factory _$MessageFileImpl.fromJson(Map<String, dynamic> json) =>
@@ -562,6 +576,8 @@ class _$MessageFileImpl implements _MessageFile {
   final String content;
   @override
   final String size;
+  @override
+  final String dataType;
 // ignore: invalid_annotation_target
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -569,7 +585,7 @@ class _$MessageFileImpl implements _MessageFile {
 
   @override
   String toString() {
-    return 'MessageFile(name: $name, type: $type, content: $content, size: $size, bytes: $bytes)';
+    return 'MessageFile(name: $name, type: $type, content: $content, size: $size, dataType: $dataType, bytes: $bytes)';
   }
 
   @override
@@ -581,13 +597,15 @@ class _$MessageFileImpl implements _MessageFile {
             (identical(other.type, type) || other.type == type) &&
             (identical(other.content, content) || other.content == content) &&
             (identical(other.size, size) || other.size == size) &&
+            (identical(other.dataType, dataType) ||
+                other.dataType == dataType) &&
             const DeepCollectionEquality().equals(other.bytes, bytes));
   }
 
   @JsonKey(ignore: true)
   @override
   int get hashCode => Object.hash(runtimeType, name, type, content, size,
-      const DeepCollectionEquality().hash(bytes));
+      dataType, const DeepCollectionEquality().hash(bytes));
 
   @JsonKey(ignore: true)
   @override
@@ -609,6 +627,7 @@ abstract class _MessageFile implements MessageFile {
       required final String type,
       required final String content,
       required final String size,
+      required final String dataType,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Uint8List? bytes}) = _$MessageFileImpl;
 
@@ -623,6 +642,8 @@ abstract class _MessageFile implements MessageFile {
   String get content;
   @override
   String get size;
+  @override
+  String get dataType;
   @override // ignore: invalid_annotation_target
   @JsonKey(includeFromJson: false, includeToJson: false)
   Uint8List? get bytes;

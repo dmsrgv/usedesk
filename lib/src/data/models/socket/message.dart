@@ -80,6 +80,7 @@ class MessageFile with _$MessageFile {
     required String type,
     required String content,
     required String size,
+    required String dataType,
     // ignore: invalid_annotation_target
     @JsonKey(includeFromJson: false, includeToJson: false) Uint8List? bytes,
   }) = _MessageFile;

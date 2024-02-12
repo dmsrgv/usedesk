@@ -105,6 +105,7 @@ class UsedeskChat {
     Stream<double>? uploadProgressStream;
     if (localId != null) {
       final mime = lookupMimeType(filename) ?? '';
+      final dataType = mime.split('/')[0];
       final extension = p.extension(filename);
 
       final file = MessageFile(
@@ -113,6 +114,7 @@ class UsedeskChat {
         content: '__loading__',
         type: extension,
         bytes: bytes,
+        dataType: dataType,
       );
       final status = _api.isConnected
           ? MessageSentStatus.sending
@@ -121,31 +123,17 @@ class UsedeskChat {
       uploadProgress = StreamController<double>()..add(0);
       uploadProgressStream = uploadProgress.stream.asBroadcastStream();
 
-      if (mime.startsWith('image')) {
-        _repository.addMessage(
-          UsedeskMessage(
-            id: -localId,
-            localId: localId,
-            createdAt: DateTime.now().toUtc(),
-            file: file,
-            status: status,
-            uploadProgress: uploadProgressStream,
-            fromClient: true,
-          ),
-        );
-      } else {
-        _repository.addMessage(
-          UsedeskMessage(
-            id: -localId,
-            localId: localId,
-            createdAt: DateTime.now().toUtc(),
-            file: file,
-            status: status,
-            uploadProgress: uploadProgressStream,
-            fromClient: true,
-          ),
-        );
-      }
+      _repository.addMessage(
+        UsedeskMessage(
+          id: -localId,
+          localId: localId,
+          createdAt: DateTime.now().toUtc(),
+          file: file,
+          status: status,
+          uploadProgress: uploadProgressStream,
+          fromClient: true,
+        ),
+      );
     }
     bool result = true;
 
