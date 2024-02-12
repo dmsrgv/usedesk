@@ -105,7 +105,6 @@ class UsedeskChat {
     Stream<double>? uploadProgressStream;
     if (localId != null) {
       final mime = lookupMimeType(filename) ?? '';
-      final dataType = mime.split('/')[0];
       final extension = p.extension(filename);
 
       final file = MessageFile(
@@ -114,7 +113,7 @@ class UsedeskChat {
         content: '__loading__',
         type: extension,
         bytes: bytes,
-        dataType: dataType,
+        dataType: mime,
       );
       final status = _api.isConnected
           ? MessageSentStatus.sending
