@@ -59,6 +59,8 @@ class UsedeskChat {
     );
   }
 
+  bool get isConnected => _api.isConnected;
+
   set identify(IdentifyConfiguration config) {
     _api.identify = config;
   }
