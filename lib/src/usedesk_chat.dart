@@ -59,7 +59,7 @@ class UsedeskChat {
 
   bool get isConnected => _api.isConnected;
 
-  String get token => _api.token;
+  String? get token => _api.token;
 
   set identify(IdentifyConfiguration config) {
     _api.identify = config;

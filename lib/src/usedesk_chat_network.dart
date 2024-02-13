@@ -50,7 +50,7 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
 
   bool get isConnected => _socket.isConnected;
 
-  String get token => _clientToken ?? '';
+  String? get token => _clientToken;
 
   set identify(IdentifyConfiguration? config) {
     _identify = config;
