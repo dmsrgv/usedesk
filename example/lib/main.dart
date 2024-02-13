@@ -38,9 +38,6 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
       companyId: '167613',
       channelId: '53976',
       token: 'TDoD1CBBVBoDEBCBTSBtCBCjNBqBgDeBBDYDpC5TCrCmCxDBClC5DDD3DegC6rDe',
-      onSaveToken: (token) {
-        print(token);
-      },
     );
 
     usedeskChat.connect();
@@ -114,7 +111,7 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
                       onPressed: () {
                         future.data!.sendText('Магазины');
                       },
-                      child: Text('Отправить привет')),
+                      child: const Text('Отправить привет')),
                 ],
               );
             }
