@@ -73,7 +73,11 @@ class UsedeskChatSocketProvider {
   }
 
   void connect() {
-    _socket.connect();
+    try {
+      _socket.connect();
+    } catch (e) {
+      print('НЕТ КОННЕКТА $e');
+    }
   }
 
   void disconnect() {
