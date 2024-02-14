@@ -61,9 +61,9 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
     usedeskChat = UsedeskChat.init(
       storage: SharedPreferencesUsedeskChatStorage(widget.prefs),
       debug: true,
-      channelId: '53760214124',
-      companyId: '167613214124',
-      token: null,
+      channelId: '53760',
+      companyId: '167613',
+      token: 'DBNBkDsBqDplCDBNZCdDnFDpCBkC1DPRcBugD0DcCCeChPDHCX3mCBB09CiDnuBH',
     );
   }
 

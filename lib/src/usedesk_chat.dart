@@ -5,6 +5,7 @@ import 'package:filesize/filesize.dart';
 import 'package:mime/mime.dart';
 import 'package:path/path.dart' as p;
 import 'package:usedesk/src/data/models/messages/usedesk_message.dart';
+import 'package:usedesk/src/utils/random.dart';
 
 import 'usedesk_chat_network.dart';
 import 'data/models/configuration/chat_api_configuration.dart';
@@ -94,21 +95,21 @@ class UsedeskChat {
     _api.disconnect();
   }
 
-  void sendText(String text, [int? localId]) {
-    if (localId != null) {
-      _repository.addMessage(UsedeskMessage(
-        id: -localId,
-        localId: localId,
-        createdAt: DateTime.now(),
-        text: text,
-        status: _api.isConnected
-            ? MessageSentStatus.sending
-            : MessageSentStatus.failed,
-        buttons: [],
-        fromClient: true,
-      ));
-      _repository.saveFailedMessages();
-    }
+  void sendText(String text) {
+    final localId = generateRandomInt(max: 100000);
+    _repository.addMessage(UsedeskMessage(
+      id: -localId,
+      localId: localId,
+      createdAt: DateTime.now(),
+      text: text,
+      status: _api.isConnected
+          ? MessageSentStatus.sending
+          : MessageSentStatus.failed,
+      buttons: [],
+      fromClient: true,
+    ));
+    _repository.saveFailedMessages();
+
     if (_api.isConnected) {
       _api.sendText(text, localId);
     }
@@ -116,43 +117,40 @@ class UsedeskChat {
 
   Future<bool> sendFile(
     String filename,
-    Uint8List bytes, [
-    int? localId,
-  ]) async {
+    Uint8List bytes,
+  ) async {
     _validateConnect();
     StreamController<double>? uploadProgress;
     Stream<double>? uploadProgressStream;
-    if (localId != null) {
-      final mime = lookupMimeType(filename) ?? '';
-      final extension = p.extension(filename);
+    final localId = generateRandomInt(max: 100000);
+    final mime = lookupMimeType(filename) ?? '';
+    final extension = p.extension(filename);
 
-      final file = MessageFile(
-        name: filename,
-        size: filesize(bytes.length),
-        content: '__loading__',
-        type: extension,
-        bytes: bytes,
-        dataType: mime,
-      );
-      final status = _api.isConnected
-          ? MessageSentStatus.sending
-          : MessageSentStatus.failed;
+    final file = MessageFile(
+      name: filename,
+      size: filesize(bytes.length),
+      content: '__loading__',
+      type: extension,
+      bytes: bytes,
+      dataType: mime,
+    );
+    final status =
+        _api.isConnected ? MessageSentStatus.sending : MessageSentStatus.failed;
 
-      uploadProgress = StreamController<double>()..add(0);
-      uploadProgressStream = uploadProgress.stream.asBroadcastStream();
+    uploadProgress = StreamController<double>()..add(0);
+    uploadProgressStream = uploadProgress.stream.asBroadcastStream();
 
-      _repository.addMessage(
-        UsedeskMessage(
-          id: -localId,
-          localId: localId,
-          createdAt: DateTime.now().toUtc(),
-          file: file,
-          status: status,
-          uploadProgress: uploadProgressStream,
-          fromClient: true,
-        ),
-      );
-    }
+    _repository.addMessage(
+      UsedeskMessage(
+        id: -localId,
+        localId: localId,
+        createdAt: DateTime.now().toUtc(),
+        file: file,
+        status: status,
+        uploadProgress: uploadProgressStream,
+        fromClient: true,
+      ),
+    );
     bool result = true;
 
     Future<void> close() async {
