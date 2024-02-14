@@ -8,11 +8,40 @@ Future<void> main() async {
   final prefs = await SharedPreferences.getInstance();
   runApp(
     MaterialApp(
-      home: SpecifyProjectPage(
+      home: HomeScreen(
         prefs: prefs,
       ),
     ),
   );
+}
+
+class HomeScreen extends StatelessWidget {
+  const HomeScreen({super.key, required this.prefs});
+
+  final SharedPreferences prefs;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text(
+          'Home',
+        ),
+      ),
+      body: Center(
+        child: ElevatedButton(
+          onPressed: () => Navigator.of(context).push(
+            MaterialPageRoute(
+              builder: (context) => SpecifyProjectPage(
+                prefs: prefs,
+              ),
+            ),
+          ),
+          child: Text('Чат'),
+        ),
+      ),
+    );
+  }
 }
 
 class SpecifyProjectPage extends StatefulWidget {
@@ -25,24 +54,17 @@ class SpecifyProjectPage extends StatefulWidget {
 }
 
 class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
+  late UsedeskChat usedeskChat;
   @override
   void initState() {
     super.initState();
-    initUsedeskChat();
-  }
-
-  Future<UsedeskChat> initUsedeskChat() async {
-    final usedeskChat = await UsedeskChat.init(
+    usedeskChat = UsedeskChat.init(
       storage: SharedPreferencesUsedeskChatStorage(widget.prefs),
       debug: true,
-      companyId: '167613',
-      channelId: '53976',
-      token: 'TDoD1CBBVBoDEBCBTSBtCBCjNBqBgDeBBDYDpC5TCrCmCxDBClC5DDD3DegC6rDe',
+      channelId: '53760214124',
+      companyId: '167613214124',
+      token: null,
     );
-
-    usedeskChat.connect();
-
-    return usedeskChat;
   }
 
   @override
@@ -51,75 +73,110 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
       appBar: AppBar(
         title: const Text('Чат'),
       ),
-      body: FutureBuilder(
-          future: initUsedeskChat(),
-          builder: (context, future) {
-            if (future.hasData) {
-              return Column(
-                children: [
-                  StreamBuilder(
-                    stream: future.data!.messagesStream,
-                    builder: (context, snapshot) {
-                      if (snapshot.hasData) {
-                        return Expanded(
-                            child: ListView.builder(
-                                itemCount: snapshot.data!.length,
-                                itemBuilder: (context, index) {
-                                  final message = snapshot.data![index];
-                                  if (message.text != null) {
-                                    return Column(
-                                      children: [
-                                        Text(message.text!),
-                                        if (message.buttons != null)
-                                          Wrap(
-                                            spacing: 8,
-                                            children: [
-                                              ...message.buttons!
-                                                  .map(
-                                                    (e) => ActionChip(
-                                                      label: Text(
-                                                        e.text,
-                                                        style: const TextStyle(
-                                                          color: Colors.white,
-                                                        ),
-                                                      ),
-                                                      backgroundColor:
-                                                          Colors.green,
-                                                      shadowColor:
-                                                          Colors.green.shade800,
-                                                      elevation: 8,
-                                                      onPressed: () {
-                                                        future.data!
-                                                            .sendText(e.text);
-                                                      },
-                                                    ),
-                                                  )
-                                                  .toList(),
-                                            ],
-                                          ),
-                                      ],
-                                    );
-                                  }
-                                  return const SizedBox();
-                                }));
-                      }
+      body: Chat(usedeskChat: usedeskChat),
+    );
+  }
+}
 
-                      return const Text('Нет сообщений');
-                    },
-                  ),
-                  ElevatedButton(
-                      onPressed: () {
-                        future.data!.sendText('Магазины');
-                      },
-                      child: const Text('Отправить привет')),
-                ],
-              );
-            }
+class Chat extends StatefulWidget {
+  const Chat({super.key, required this.usedeskChat});
 
-            return const Center(
-              child: CircularProgressIndicator(),
-            );
-          }),
+  final UsedeskChat usedeskChat;
+
+  @override
+  State<Chat> createState() => _ChatState();
+}
+
+class _ChatState extends State<Chat> {
+  @override
+  void initState() {
+    super.initState();
+    widget.usedeskChat.connect(
+      timeout: const Duration(seconds: 5),
+      onSuccess: (token) {
+        print('token vot $token');
+      },
+      onFailed: () {
+        Navigator.maybePop(context);
+      },
+    );
+  }
+
+  @override
+  void dispose() {
+    widget.usedeskChat.disconnect();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          StreamBuilder(
+            stream: widget.usedeskChat.messagesStream,
+            builder: (context, snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const CircularProgressIndicator();
+              }
+
+              if (snapshot.hasData &&
+                  snapshot.data != null &&
+                  snapshot.data!.isNotEmpty) {
+                return Expanded(
+                    child: ListView.builder(
+                        itemCount: snapshot.data!.length,
+                        itemBuilder: (context, index) {
+                          final message = snapshot.data![index];
+                          if (message.text != null) {
+                            return Column(
+                              children: [
+                                Text(message.text!),
+                                if (message.buttons != null)
+                                  Wrap(
+                                    spacing: 8,
+                                    children: [
+                                      ...message.buttons!
+                                          .map(
+                                            (e) => ActionChip(
+                                              label: Text(
+                                                e.text,
+                                                style: const TextStyle(
+                                                  color: Colors.white,
+                                                ),
+                                              ),
+                                              backgroundColor: Colors.green,
+                                              shadowColor:
+                                                  Colors.green.shade800,
+                                              elevation: 8,
+                                              onPressed: () {},
+                                            ),
+                                          )
+                                          .toList(),
+                                    ],
+                                  ),
+                              ],
+                            );
+                          }
+                          return const SizedBox();
+                        }));
+              }
+
+              return const Text('нет сообщений');
+            },
+          ),
+          const SizedBox(
+            height: 40,
+          ),
+          ElevatedButton(
+              onPressed: () {
+                widget.usedeskChat.sendText('Привет');
+              },
+              child: const Text('Отправить привет')),
+        ],
+      ),
     );
   }
 }

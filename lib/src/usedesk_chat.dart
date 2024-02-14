@@ -30,14 +30,14 @@ class UsedeskChat {
   Stream<UsedeskMessage> get onMessageStream => _repository.onMessageStream;
   Stream<List<UsedeskMessage>> get messagesStream => _repository.messagesStream;
 
-  static Future<UsedeskChat> init({
+  static UsedeskChat init({
     required UsedeskChatStorageProvider storage,
     required String? token,
     required String companyId,
     String? channelId,
     ChatApiConfiguration apiConfig = const ChatApiConfiguration(),
     bool debug = false,
-  }) async {
+  }) {
     final repository = UsedeskChatRepository(
       storage: storage is UsedeskChatCachedStorage ? storage : null,
     );
@@ -50,6 +50,7 @@ class UsedeskChat {
       token: token,
       debug: debug,
     )..init();
+
     return UsedeskChat._(
       api: api,
       repository: repository,
@@ -69,8 +70,24 @@ class UsedeskChat {
     _api.additionalFields = fields;
   }
 
-  void connect() {
+  void connect({
+    Duration timeout = const Duration(seconds: 10),
+    Function()? onFailed,
+    Function(String? token)? onSuccess,
+  }) async {
     _api.connect();
+    try {
+      await Future.doWhile(() async {
+        await Future.delayed(Duration(seconds: 1));
+        return !_api.isInited;
+      }).timeout(timeout);
+      onSuccess?.call(_api.token);
+    } catch (_) {
+      try {
+        _api.disconnect();
+        onFailed?.call();
+      } catch (_) {}
+    }
   }
 
   void disconnect() {

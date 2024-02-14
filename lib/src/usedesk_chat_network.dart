@@ -47,10 +47,13 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
   IdentifyConfiguration? _identify;
   bool _isAdditionalFieldsSended = false;
   Map<String, String> _additionalFields = {};
+  bool _isInited = false;
 
   bool get isConnected => _socket.isConnected;
 
   String? get token => _clientToken;
+
+  bool get isInited => _isInited;
 
   set identify(IdentifyConfiguration? config) {
     _identify = config;
@@ -60,7 +63,7 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
     _additionalFields = fields;
   }
 
-  void init() {
+  void init() async {
     _socket.init();
   }
 
@@ -197,6 +200,7 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
     }
 
     _sendAdditionalFields();
+    _isInited = true;
   }
 
   @override
