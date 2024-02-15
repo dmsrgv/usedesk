@@ -85,6 +85,7 @@ class UsedeskChat {
         await Future.delayed(Duration(seconds: 1));
         return !_api.isInited;
       }).timeout(timeout);
+      _api.reSendMessages();
       onSuccess?.call(_api.token);
     } catch (_) {
       try {

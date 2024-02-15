@@ -56,6 +56,7 @@ class UsedeskChatSocketProvider {
     switch (type) {
       case ResponseType.inited:
         final response = InitedResponse.fromJson(rawData);
+        print(response.toJson());
         return callbacks.onInited(response);
       case ResponseType.message:
         final response = MessageResponse.fromJson(rawData);
@@ -72,11 +73,7 @@ class UsedeskChatSocketProvider {
   }
 
   void connect() {
-    try {
-      _socket.connect();
-    } catch (e) {
-      print('НЕТ КОННЕКТА $e');
-    }
+    _socket.connect();
   }
 
   void disconnect() {

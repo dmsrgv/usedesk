@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:usedesk/usedesk.dart';
-import 'package:usedesk_example/storage.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -54,16 +53,18 @@ class SpecifyProjectPage extends StatefulWidget {
 }
 
 class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
-  late UsedeskChat usedeskChat;
   @override
   void initState() {
     super.initState();
-    usedeskChat = UsedeskChat.init(
-      storage: SharedPreferencesUsedeskChatStorage(widget.prefs),
+    createSession();
+  }
+
+  Future<UsedeskChat> createSession() async {
+    return await UsedeskChat.init(
       debug: true,
-      channelId: '53760',
-      companyId: '167613',
-      token: 'DBNBkDsBqDplCDBNZCdDnFDpCBkC1DPRcBugD0DcCCeChPDHCX3mCBB09CiDnuBH',
+      channelId: '123',
+      companyId: '123',
+      token: '123',
     );
   }
 
@@ -73,7 +74,12 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
       appBar: AppBar(
         title: const Text('Чат'),
       ),
-      body: Chat(usedeskChat: usedeskChat),
+      body: FutureBuilder<UsedeskChat>(
+          future: createSession(),
+          builder: (context, snapshot) {
+            if (snapshot.data == null) return const SizedBox();
+            return Chat(usedeskChat: snapshot.data!);
+          }),
     );
   }
 }
@@ -88,11 +94,12 @@ class Chat extends StatefulWidget {
 }
 
 class _ChatState extends State<Chat> {
+  int count = 100;
   @override
   void initState() {
     super.initState();
     widget.usedeskChat.connect(
-      timeout: const Duration(seconds: 5),
+      timeout: const Duration(seconds: 10),
       onSuccess: (token) {
         print('token vot $token');
       },
@@ -172,9 +179,12 @@ class _ChatState extends State<Chat> {
           ),
           ElevatedButton(
               onPressed: () {
-                widget.usedeskChat.sendText('Привет');
+                setState(() {
+                  count++;
+                });
+                widget.usedeskChat.sendText('Сообщение $count');
               },
-              child: const Text('Отправить привет')),
+              child: const Text('Отправить Сообщение')),
         ],
       ),
     );

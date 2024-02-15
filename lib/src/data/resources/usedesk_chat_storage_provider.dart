@@ -59,9 +59,8 @@ class SharedPreferencesUsedeskChatStorage extends UsedeskChatStorageProvider
   Future<Future<bool>> cacheMessages(
     List<UsedeskChatCacheMessage> messages,
   ) async {
-    final cachedMessagesMap =
-        (prefs.getStringList('usedesk_chat:cached_messages') ?? [])
-            .fold<Map<String, String>>({}, (previousValue, message) {
+    final cachedMessagesMap = (prefs.getStringList('$key') ?? [])
+        .fold<Map<String, String>>({}, (previousValue, message) {
       final data = message.split('�');
       previousValue[data[0]] = data[1];
 
@@ -77,14 +76,14 @@ class SharedPreferencesUsedeskChatStorage extends UsedeskChatStorageProvider
         .toList();
 
     return prefs.setStringList(
-      'usedesk_chat:cached_messages',
+      '$key',
       result,
     );
   }
 
   @override
   Future<List<String>?> loadMessages() async {
-    return prefs.getStringList('usedesk_chat:cached_messages')?.map((message) {
+    return prefs.getStringList('$key')?.map((message) {
       final data = message.split('�');
       return data[1];
     }).toList();
@@ -92,7 +91,7 @@ class SharedPreferencesUsedeskChatStorage extends UsedeskChatStorageProvider
 
   @override
   Future<void> removeMessage(int localId) async {
-    final messages = prefs.getStringList('usedesk_chat:cached_messages') ?? [];
+    final messages = prefs.getStringList('$key') ?? [];
     final firstLength = messages.length;
     messages.removeWhere((message) {
       final data = message.split('�');
@@ -102,12 +101,12 @@ class SharedPreferencesUsedeskChatStorage extends UsedeskChatStorageProvider
       return false;
     });
     if (firstLength != messages.length) {
-      await prefs.setStringList('usedesk_chat:cached_messages', messages);
+      await prefs.setStringList('$key', messages);
     }
   }
 
   @override
   Future<Future<bool>> clearMessages() async {
-    return prefs.remove('usedesk_chat:cached_messages');
+    return prefs.remove('$key');
   }
 }

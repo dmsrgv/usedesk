@@ -195,8 +195,6 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
           ),
         ).toJson(),
       );
-    } else {
-      _reSendMessages();
     }
 
     _sendAdditionalFields();
@@ -226,8 +224,6 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
     if (response.state.client.token != null) {
       _setToken(response.state.client.token!);
     }
-
-    _reSendMessages();
   }
 
   @override
@@ -239,7 +235,7 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
     _clientToken = token;
   }
 
-  Future<void> _reSendMessages() async {
+  Future<void> reSendMessages() async {
     List<UsedeskMessage> messages = await repository.cachedMessages();
     if (messages.isEmpty) {
       messages = repository.failedMessages();
