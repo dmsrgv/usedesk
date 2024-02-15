@@ -248,6 +248,17 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
     }
   }
 
+  Future<void> sendAdditionalField(String id, String value) async {
+    final field = AdditionalFieldsItemRequest(id: id, value: value);
+    Network.post(
+      '${apiConfig.urlApi}/v1/addFieldsToChat',
+      AdditionalFieldsRequest(
+        chatToken: _clientToken!,
+        additionalFields: [field],
+      ).toJson(),
+    );
+  }
+
   Future<void> _sendAdditionalFields() async {
     if (_isAdditionalFieldsSended ||
         _additionalFields.isEmpty ||

@@ -95,6 +95,13 @@ class UsedeskChat {
     }
   }
 
+  Future<void> sendAdditionalField({
+    required String id,
+    required String value,
+  }) async {
+    _api.sendAdditionalField(id, value);
+  }
+
   void disconnect() {
     _api.disconnect();
   }
