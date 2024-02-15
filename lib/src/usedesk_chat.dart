@@ -4,6 +4,7 @@ import 'dart:typed_data';
 import 'package:filesize/filesize.dart';
 import 'package:mime/mime.dart';
 import 'package:path/path.dart' as p;
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:usedesk/src/data/models/messages/usedesk_message.dart';
 import 'package:usedesk/src/utils/random.dart';
 
@@ -31,16 +32,18 @@ class UsedeskChat {
   Stream<UsedeskMessage> get onMessageStream => _repository.onMessageStream;
   Stream<List<UsedeskMessage>> get messagesStream => _repository.messagesStream;
 
-  static UsedeskChat init({
-    required UsedeskChatStorageProvider storage,
+  static Future<UsedeskChat> init({
     required String? token,
     required String companyId,
     String? channelId,
+    String? storageKey,
     ChatApiConfiguration apiConfig = const ChatApiConfiguration(),
     bool debug = false,
-  }) {
+  }) async {
+    final prefs = await SharedPreferences.getInstance();
+    final storage = SharedPreferencesUsedeskChatStorage(prefs, key: storageKey);
     final repository = UsedeskChatRepository(
-      storage: storage is UsedeskChatCachedStorage ? storage : null,
+      storage: storage,
     );
     final api = UsedeskChatNetwork(
       repository: repository,

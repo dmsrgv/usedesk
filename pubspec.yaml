@@ -17,10 +17,12 @@ dependencies:
   http_parser: ^4.0.2
   filesize: ^2.0.1
   path: ^1.8.3
+  path_provider: ^2.1.1
+  shared_preferences: ^2.1.1
+
 
 dev_dependencies:
   lints: ^2.0.0
   build_runner: ^2.4.6
   freezed: ^2.2.0
   json_serializable: ^6.7.1
-  analyzer: ^6.4.1
