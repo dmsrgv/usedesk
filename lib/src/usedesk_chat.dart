@@ -70,10 +70,6 @@ class UsedeskChat {
     _api.identify = config;
   }
 
-  set additionalFields(Map<String, String> fields) {
-    _api.additionalFields = fields;
-  }
-
   void connect({
     Duration timeout = const Duration(seconds: 10),
     Function()? onFailed,
@@ -95,11 +91,10 @@ class UsedeskChat {
     }
   }
 
-  Future<void> sendAdditionalField({
-    required String id,
-    required String value,
+  Future<void> sendAdditionalFields({
+    required Map<int, String> fields,
   }) async {
-    _api.sendAdditionalField(id, value);
+    _api.sendAdditionalFields(fields: fields);
   }
 
   void disconnect() {

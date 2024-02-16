@@ -45,8 +45,6 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
   late UsedeskChatSocketProvider _socket;
   String? _clientToken;
   IdentifyConfiguration? _identify;
-  bool _isAdditionalFieldsSended = false;
-  Map<String, String> _additionalFields = {};
   bool _isInited = false;
 
   bool get isConnected => _socket.isConnected;
@@ -57,10 +55,6 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
 
   set identify(IdentifyConfiguration? config) {
     _identify = config;
-  }
-
-  set additionalFields(Map<String, String> fields) {
-    _additionalFields = fields;
   }
 
   void init() async {
@@ -196,8 +190,6 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
         ).toJson(),
       );
     }
-
-    _sendAdditionalFields();
     _isInited = true;
   }
 
@@ -248,40 +240,34 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
     }
   }
 
-  Future<void> sendAdditionalField(String id, String value) async {
-    final field = AdditionalFieldsItemRequest(id: id, value: value);
-    Network.post(
-      '${apiConfig.urlApi}/v1/addFieldsToChat',
-      AdditionalFieldsRequest(
-        chatToken: _clientToken!,
-        additionalFields: [field],
-      ).toJson(),
-    );
-  }
-
-  Future<void> _sendAdditionalFields() async {
-    if (_isAdditionalFieldsSended ||
-        _additionalFields.isEmpty ||
-        _clientToken == null) {
+  Future<void> sendAdditionalFields({required Map<int, String> fields}) async {
+    if (_clientToken == null || fields.isEmpty || !isConnected) {
       return;
     }
+    int statusCode = 429;
 
-    final fields = _additionalFields.entries
+    final fieldsItems = fields.entries
         .map((entry) => AdditionalFieldsItemRequest(
-              id: entry.key,
+              id: entry.key.toString(),
               value: entry.value,
             ))
         .toList();
+    try {
+      do {
+        final response = await Network.post(
+          '${apiConfig.urlApi}/v1/addFieldsToChat',
+          AdditionalFieldsRequest(
+            chatToken: _clientToken!,
+            additionalFields: fieldsItems,
+          ).toJson(),
+        );
 
-    Network.post(
-      '${apiConfig.urlApi}/v1/addFieldsToChat',
-      AdditionalFieldsRequest(
-        chatToken: _clientToken!,
-        additionalFields: fields,
-      ).toJson(),
-    );
+        statusCode = response.statusCode;
 
-    _isAdditionalFieldsSended = true;
-    _additionalFields = {};
+        await Future.delayed(Duration(seconds: 1));
+      } while (statusCode != 200);
+    } catch (_) {
+      rethrow;
+    }
   }
 }

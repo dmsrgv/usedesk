@@ -60,12 +60,21 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
   }
 
   Future<UsedeskChat> createSession() async {
-    return await UsedeskChat.init(
+    final usedeskChat = await UsedeskChat.init(
       debug: true,
       channelId: '123',
       companyId: '123',
-      token: '123',
+      token: null,
     );
+
+    usedeskChat.identify = const IdentifyConfiguration(
+      email: 'test@test.ru',
+      name: 'Dimon',
+      phoneNumber: 9999,
+      additionalId: '1',
+    );
+
+    return usedeskChat;
   }
 
   @override
@@ -101,7 +110,13 @@ class _ChatState extends State<Chat> {
     widget.usedeskChat.connect(
       timeout: const Duration(seconds: 10),
       onSuccess: (token) {
-        print('token vot $token');
+        widget.usedeskChat.sendAdditionalFields(fields: {
+          25179: '1.1.1',
+          25182: 'Android',
+          25181: 'Xiaomi',
+          25180: 'Мск',
+          25178: 'true',
+        });
       },
       onFailed: () {
         Navigator.maybePop(context);
