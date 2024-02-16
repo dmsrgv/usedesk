@@ -56,7 +56,6 @@ class UsedeskChatSocketProvider {
     switch (type) {
       case ResponseType.inited:
         final response = InitedResponse.fromJson(rawData);
-        print(response.toJson());
         return callbacks.onInited(response);
       case ResponseType.message:
         final response = MessageResponse.fromJson(rawData);
