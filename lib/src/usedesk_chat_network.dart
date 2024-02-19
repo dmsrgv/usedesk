@@ -32,6 +32,7 @@ class UsedeskChatNetwork implements UsedeskChatSocketCallbacks {
     _socket = UsedeskChatSocketProvider(
       apiConfig: apiConfig,
       callbacks: this,
+      debug: debug,
     );
   }
 

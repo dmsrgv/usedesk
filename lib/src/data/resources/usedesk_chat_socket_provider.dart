@@ -13,10 +13,12 @@ class UsedeskChatSocketProvider {
   UsedeskChatSocketProvider({
     required this.apiConfig,
     required this.callbacks,
+    this.debug = false,
   });
 
   final ChatApiConfiguration apiConfig;
   final UsedeskChatSocketCallbacks callbacks;
+  final bool debug;
 
   late Socket _socket;
 
@@ -27,6 +29,11 @@ class UsedeskChatSocketProvider {
       apiConfig.urlChat,
       OptionBuilder().setTransports(['websocket']).disableAutoConnect().build(),
     )
+      ..onAny((event, data) {
+        if (debug) {
+          print('[$event, $data]');
+        }
+      })
       ..onConnect((_) => callbacks.onConnect())
       ..onDisconnect((_) => callbacks.onDisconnect())
       ..onError(callbacks.onConnectError)
