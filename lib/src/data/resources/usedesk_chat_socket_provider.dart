@@ -31,7 +31,7 @@ class UsedeskChatSocketProvider {
     )
       ..onAny((event, data) {
         if (debug) {
-          print('[$event, $data]');
+          print('[UsedeskChat] [$event, $data]');
         }
       })
       ..onConnect((_) => callbacks.onConnect())
