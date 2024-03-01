@@ -49,7 +49,7 @@ _$MessageFileImpl _$$MessageFileImplFromJson(Map<String, dynamic> json) =>
       type: json['type'] as String,
       content: json['content'] as String,
       size: json['size'] as String,
-      dataType: json['dataType'] as String,
+      dataType: json['dataType'] as String?,
     );
 
 Map<String, dynamic> _$$MessageFileImplToJson(_$MessageFileImpl instance) =>

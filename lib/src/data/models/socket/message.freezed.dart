@@ -415,7 +415,7 @@ mixin _$MessageFile {
   String get type => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
   String get size => throw _privateConstructorUsedError;
-  String get dataType =>
+  String? get dataType =>
       throw _privateConstructorUsedError; // ignore: invalid_annotation_target
   @JsonKey(includeFromJson: false, includeToJson: false)
   Uint8List? get bytes => throw _privateConstructorUsedError;
@@ -437,7 +437,7 @@ abstract class $MessageFileCopyWith<$Res> {
       String type,
       String content,
       String size,
-      String dataType,
+      String? dataType,
       @JsonKey(includeFromJson: false, includeToJson: false) Uint8List? bytes});
 }
 
@@ -458,7 +458,7 @@ class _$MessageFileCopyWithImpl<$Res, $Val extends MessageFile>
     Object? type = null,
     Object? content = null,
     Object? size = null,
-    Object? dataType = null,
+    Object? dataType = freezed,
     Object? bytes = freezed,
   }) {
     return _then(_value.copyWith(
@@ -478,10 +478,10 @@ class _$MessageFileCopyWithImpl<$Res, $Val extends MessageFile>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as String,
-      dataType: null == dataType
+      dataType: freezed == dataType
           ? _value.dataType
           : dataType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       bytes: freezed == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
@@ -503,7 +503,7 @@ abstract class _$$MessageFileImplCopyWith<$Res>
       String type,
       String content,
       String size,
-      String dataType,
+      String? dataType,
       @JsonKey(includeFromJson: false, includeToJson: false) Uint8List? bytes});
 }
 
@@ -522,7 +522,7 @@ class __$$MessageFileImplCopyWithImpl<$Res>
     Object? type = null,
     Object? content = null,
     Object? size = null,
-    Object? dataType = null,
+    Object? dataType = freezed,
     Object? bytes = freezed,
   }) {
     return _then(_$MessageFileImpl(
@@ -542,10 +542,10 @@ class __$$MessageFileImplCopyWithImpl<$Res>
           ? _value.size
           : size // ignore: cast_nullable_to_non_nullable
               as String,
-      dataType: null == dataType
+      dataType: freezed == dataType
           ? _value.dataType
           : dataType // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
       bytes: freezed == bytes
           ? _value.bytes
           : bytes // ignore: cast_nullable_to_non_nullable
@@ -577,7 +577,7 @@ class _$MessageFileImpl implements _MessageFile {
   @override
   final String size;
   @override
-  final String dataType;
+  final String? dataType;
 // ignore: invalid_annotation_target
   @override
   @JsonKey(includeFromJson: false, includeToJson: false)
@@ -627,7 +627,7 @@ abstract class _MessageFile implements MessageFile {
       required final String type,
       required final String content,
       required final String size,
-      required final String dataType,
+      required final String? dataType,
       @JsonKey(includeFromJson: false, includeToJson: false)
       final Uint8List? bytes}) = _$MessageFileImpl;
 
@@ -643,7 +643,7 @@ abstract class _MessageFile implements MessageFile {
   @override
   String get size;
   @override
-  String get dataType;
+  String? get dataType;
   @override // ignore: invalid_annotation_target
   @JsonKey(includeFromJson: false, includeToJson: false)
   Uint8List? get bytes;
