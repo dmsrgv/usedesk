@@ -53,10 +53,11 @@ class SpecifyProjectPage extends StatefulWidget {
 }
 
 class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
+  late Future<UsedeskChat> _usedeskChat;
   @override
   void initState() {
     super.initState();
-    createSession();
+    _usedeskChat = createSession();
   }
 
   Future<UsedeskChat> createSession() async {
@@ -84,7 +85,7 @@ class _SpecifyProjectPageState extends State<SpecifyProjectPage> {
         title: const Text('Чат'),
       ),
       body: FutureBuilder<UsedeskChat>(
-          future: createSession(),
+          future: _usedeskChat,
           builder: (context, snapshot) {
             if (snapshot.data == null) return const SizedBox();
             return Chat(usedeskChat: snapshot.data!);
